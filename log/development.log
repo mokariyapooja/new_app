@@ -3848,3 +3848,201 @@ ActionController::RoutingError (No route matches [GET] "/assets/bg.png"):
   Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.9ms)
   Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.6ms)
   Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (53.5ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to ChangeFildTypeUser (20141013134426)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (19.4ms)[0m  [1mCREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "user_name" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "mobile_number" integer, "device_id" integer, "device_type" varchar(255)) [0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  [1m[35m (0.3ms)[0m  SELECT * FROM "users"
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (1, 'pooja@gmail.com', '$2a$10$NGH0gkgdnzBe/QVwa/eCn.00Y77rhOxzTGsB5QtVmkb3PHiPcBs0S', '1aad8b19a95dc952afbbb694b49387140537bb898c1b868cdcefd8e3cf13277d', '2014-10-13 12:28:41.006645', NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 10:45:49.041011', '2014-10-13 12:28:41.007728', NULL, 'p', 'p', 1231231230, 123456789, 'kjbnlkjn')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (2, 'pooja1@gmail.com', '$2a$10$.0s1tE7MbwZl3WoEUAtqdOrGYyIYr253ZV96G/1i1nc5vuipl9B9K', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 10:55:19.860727', '2014-10-13 10:55:19.860727', NULL, 'p', 'p', 1231231230, 123456789, 'kjbnlkjn')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (3, 'monika@gmail.com', '$2a$10$hrdV/A1PdPyOmfG0F8YxduvL.hVZxtAVQOnyhKve1xXvID7dM31c6', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 10:57:30.666611', '2014-10-13 10:57:30.666611', NULL, 'm', 'm', 1234567890, 123456789, 'jhbkjh')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (4, 'pooja1234@gmail.com', '$2a$10$uvSgT8Qfhm8XY2aMJWwLZ.ZL2rOAfT0a/njK3w.cSNFKaHKzBN8Be', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 11:10:26.353169', '2014-10-13 11:10:26.353169', NULL, '', '', 1, NULL, '')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (5, 'pooja12345@gmail.com', '$2a$10$mnI0mdQ9Mss55IUyAUSzYe5mef.NULKfq93e8pgACE2uVlDsT2TuO', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 11:10:56.783437', '2014-10-13 11:10:56.783437', NULL, '', '', 1, NULL, '')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (6, 'mm@gmail.com', '$2a$10$pK.RRvYK3AjAlwmLr/0jD.dKMks8pH467/1KhTQUc.tz3P2FaCz0y', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 11:20:19.800553', '2014-10-13 11:20:41.654263', NULL, '', '', NULL, NULL, '')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (7, 'mm1@gmail.com', '$2a$10$R15AOq12mlCaj8mm7cxnY.C2xil.ZMWEafYy1e0C/Knyjm.RwqsVy', 'bb403625d6d665aca9df759903fd469facec0d2b6b830b0425a9f95406a8f66c', '2014-10-13 11:25:45.668334', NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 11:21:37.621545', '2014-10-13 11:25:45.669080', NULL, '', '', NULL, NULL, '')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (8, 'm1@gmail.com', '$2a$10$9hgR6SE0dQDfKjipKdaqmeSZVmW5KxAVVPf44Ip2VQxocVj/x6egC', 'c8ceba41ccdc0b4169466ba0552dd72fa28aa40e5d0aac616ccc5a1ec9ecad02', '2014-10-13 11:57:33.699638', NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 11:56:35.077162', '2014-10-13 11:57:33.700379', NULL, '', '', NULL, NULL, '')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (9, 'pooja10@gmail.com', '$2a$10$ZSsHENNd3M3fACTCztual.8cxvw4HcFDRQWEoUpX/gRsIE2TES2NO', '3b5e0fbccaa166646742e71b5928e3fe030ae5c0e9e2f7e18254fcd5d2d0545b', '2014-10-13 12:43:18.259843', NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 12:41:27.765667', '2014-10-13 12:43:18.260431', NULL, 'pooja', 'm', 1234567890, 123456, 'kj.')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "ausers" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (10, 'maan@gmail.com', '$2a$10$5gwhPYTwjTN3tc40sPOUqO4/EEcdGVPIFA4rBG6xKnp2zp4qCzfn6', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 13:29:59.423228', '2014-10-13 13:31:19.202450', NULL, 'm', 'm', 1234567890, NULL, '')
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "user_name" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "mobile_number" integer(8) NOT NULL, "device_id" integer, "device_type" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.3ms)[0m  SELECT * FROM "ausers"
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (1, 'pooja@gmail.com', '$2a$10$NGH0gkgdnzBe/QVwa/eCn.00Y77rhOxzTGsB5QtVmkb3PHiPcBs0S', '1aad8b19a95dc952afbbb694b49387140537bb898c1b868cdcefd8e3cf13277d', '2014-10-13 12:28:41.006645', NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 10:45:49.041011', '2014-10-13 12:28:41.007728', NULL, 'p', 'p', 1231231230, 123456789, 'kjbnlkjn')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (2, 'pooja1@gmail.com', '$2a$10$.0s1tE7MbwZl3WoEUAtqdOrGYyIYr253ZV96G/1i1nc5vuipl9B9K', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 10:55:19.860727', '2014-10-13 10:55:19.860727', NULL, 'p', 'p', 1231231230, 123456789, 'kjbnlkjn')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (3, 'monika@gmail.com', '$2a$10$hrdV/A1PdPyOmfG0F8YxduvL.hVZxtAVQOnyhKve1xXvID7dM31c6', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 10:57:30.666611', '2014-10-13 10:57:30.666611', NULL, 'm', 'm', 1234567890, 123456789, 'jhbkjh')[0m
+  [1m[35m (0.1ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (4, 'pooja1234@gmail.com', '$2a$10$uvSgT8Qfhm8XY2aMJWwLZ.ZL2rOAfT0a/njK3w.cSNFKaHKzBN8Be', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 11:10:26.353169', '2014-10-13 11:10:26.353169', NULL, '', '', 1, NULL, '')
+  [1m[36m (0.1ms)[0m  [1mINSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (5, 'pooja12345@gmail.com', '$2a$10$mnI0mdQ9Mss55IUyAUSzYe5mef.NULKfq93e8pgACE2uVlDsT2TuO', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 11:10:56.783437', '2014-10-13 11:10:56.783437', NULL, '', '', 1, NULL, '')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (6, 'mm@gmail.com', '$2a$10$pK.RRvYK3AjAlwmLr/0jD.dKMks8pH467/1KhTQUc.tz3P2FaCz0y', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 11:20:19.800553', '2014-10-13 11:20:41.654263', NULL, '', '', NULL, NULL, '')
+SQLite3::ConstraintException: users.mobile_number may not be NULL: INSERT INTO "users" ("id","email","encrypted_password","reset_password_token","reset_password_sent_at","remember_created_at","sign_in_count","current_sign_in_at","last_sign_in_at","current_sign_in_ip","last_sign_in_ip","created_at","updated_at","user_name","first_name","last_name","mobile_number","device_id","device_type") VALUES (6, 'mm@gmail.com', '$2a$10$pK.RRvYK3AjAlwmLr/0jD.dKMks8pH467/1KhTQUc.tz3P2FaCz0y', NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, '2014-10-13 11:20:19.800553', '2014-10-13 11:20:41.654263', NULL, '', '', NULL, NULL, '')
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[36m (123.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (957.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20141013091952)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141013091952"]]
+  [1m[36m (171.4ms)[0m  [1mcommit transaction[0m
+Migrating to AddFiledToUser (20141013095409)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD "user_name" varchar(255)[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "users" ADD "first_name" varchar(255)
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "users" ADD "last_name" varchar(255)[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "mobile_number" integer
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "device_id" integer[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "users" ADD "device_type" varchar(255)
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141013095409"]]
+  [1m[35m (163.2ms)[0m  commit transaction
+Migrating to CreateAuthenticationTokens (20141013104741)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "authentication_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141013104741"]]
+  [1m[35m (148.5ms)[0m  commit transaction
+Migrating to AddFiledToAuthenticationToken (20141013104857)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "authentication_tokens" ADD "user_id" integer
+  [1m[36m (0.2ms)[0m  [1mALTER TABLE "authentication_tokens" ADD "auth_token" varchar(255)[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141013104857"]]
+  [1m[36m (171.2ms)[0m  [1mcommit transaction[0m
+Migrating to ChangeFildTypeUser (20141013134426)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "user_name" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "mobile_number" integer, "device_id" integer, "device_type" varchar(255)) [0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "users"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "users"
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "user_name" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "mobile_number" integer(8) NOT NULL, "device_id" integer, "device_type" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "ausers"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "ausers"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141013134426"]]
+  [1m[35m (136.2ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
