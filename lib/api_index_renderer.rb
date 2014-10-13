@@ -15,11 +15,6 @@ class ApiIndexRenderer
       index_arr << ApiIndexRenderer.new("Change password", "change_password", "POST")
       index_arr << ApiIndexRenderer.new("Forgot password", "forgot_password", "POST")
       index_arr << ApiIndexRenderer.new("Logout", "sing_out", "GET")
-      index_arr << ApiIndexRenderer.new("Update Profile", "update_profile", "POST")
-      index_arr << ApiIndexRenderer.new("Update latitude Longitude", "update_latitude_longitude", "POST")
-      index_arr << ApiIndexRenderer.new("Create group", "create_group", "POST")
-      index_arr << ApiIndexRenderer.new("Add friends in group", "add_friends_in_group", "POST")
-      index_arr << ApiIndexRenderer.new("Groups List", "groups_list", "POST")
       index_arr
     end    
   end

@@ -4,4 +4,74 @@
   </div>  
 </span>
 <span class='right_panel'> 
+   
+  
+  <!-- Sign Up Api -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Sign Up', 
+        link_href: 'signup',
+        link_method: 'POST',
+        original_link:   api_signup_path,
+        parameters: [
+          {name: 'user[first_name]', description: 'First name'},
+          {name: 'user[last_name]', description: 'Last name'},
+          {name: 'user[email]', description: 'Email Address of User', required: 1 },
+          {name: 'user[password]', description: 'Password', required: 1},
+          {name: 'user[password_confirmation]', description: 'Password', required: 1},
+          {name: 'user[mobile_number]', description: 'Contact number'},
+          {name: 'user[device_id]', description: 'Device id'},
+          {name: 'user[device_type]', description: 'Device type (iphone/android)'}
+        ],
+        options: {}} %>
+     
+  <!-- Login Api -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Login', 
+        link_href: 'login',
+        link_method: 'POST',
+        original_link:  api_login_path,
+        parameters: [
+          {name: 'email', description: 'email of User', required: 1 },
+          {name: 'password', description: 'Password', required: 1},
+          {name: 'device_id', description: 'Device id'},
+          {name: 'device_type', description: 'Device type (iphone/android)'}
+        ],
+        options: {}} %>
+
+  <!-- Change password-->
+  <%= render partial: 'api', locals: {
+        link_name: 'Change Password', 
+        link_href: 'change_password',
+        link_method: 'POST',
+        original_link:  api_change_password_path,
+        parameters: [
+          {name: 'auth_token', description: 'Authentication Token which you will get from login or register api', required: 1 },
+          {name: 'user[current_password]', description: 'Current Password', required: 1},
+          {name: 'user[password]', description: 'New Password', required: 1},
+          {name: 'user[password_confirmation]', description: 'Confirm new Password', required: 1},
+        ],
+        options: {}} %>
+
+  <!-- Forgot password -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Forgot Password', 
+        link_href: 'forgot_password',
+        link_method: 'POST',
+        original_link:  api_forgot_password_path,
+        parameters: [
+          {name: 'email', description: 'email of User', required: 1 }
+        ],
+        options: {}} %>
+
+  <!-- Logout Api -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Logout', 
+        link_href: 'logout',
+        link_method: 'GET',
+        original_link:  api_logout_path,
+        parameters: [
+          {name: 'auth_token', description: 'Authentication Token which you will get from login or register api', required: 1 }
+        ],
+        options: {}} %>
+
 </span> 
