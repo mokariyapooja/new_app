@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'logout', to: 'sessions#sing_out' , :as => :logout
       post 'forgot_password', to: 'sessions#forgot_password', :as => :forgot_password
       post 'change_password', to: 'sessions#change_password', :as => :change_password
+      post 'update_profile', to: 'users#update_profile', :as => :update_profile
    end
   end
 

@@ -74,4 +74,18 @@
         ],
         options: {}} %>
 
+  <!-- Update Profile Api -->
+    <%= render partial: 'api', locals: {
+          link_name: 'Update Profile', 
+          link_href: 'update_profile',
+          link_method: 'POST',
+          original_link:   api_update_profile_path,
+          parameters: [
+            {name: 'auth_token', description: 'Authentication Token which you will get from login or register api', required: 1 },
+            {name: 'user[first_name]', description: 'First name'},
+            {name: 'user[last_name]', description: 'Last name'},
+            {name: 'user[mobile_number]', description: 'mobile_number Address of User'}
+          ],
+          options: {}} %>
+
 </span> 
