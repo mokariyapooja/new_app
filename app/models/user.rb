@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   ##validations
   validates_uniqueness_of :email
+  validates_format_of :mobile_number, 
+                      :with => /\A[0-9]{10,15}\Z/,:maximum =>15,:minimum =>10
 
   ##class
   class << self
