@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   ##relationship
   has_many :authentication_tokens, :dependent => :destroy
-
+  
   ##validations
   validates_uniqueness_of :email
   validates_format_of :mobile_number, 

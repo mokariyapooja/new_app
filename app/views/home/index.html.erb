@@ -88,4 +88,17 @@
           ],
           options: {}} %>
 
+
+  <!-- Logout Api -->
+  <%= render partial: 'api', locals: {
+        link_name: 'create_car', 
+        link_href: 'create_car',
+        link_method: 'POST',
+        original_link:  api_create_car_path,
+        parameters: [
+          {name: 'car[name]', description: 'Car name', required: 1},
+          {name: 'car[total_passenger]', description: 'number of persone'},
+          {name: 'car[total_luggage]', description: 'totle waight of luggage'}
+        ],
+        options: {}} %>
 </span> 

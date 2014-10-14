@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141013134426) do
+ActiveRecord::Schema.define(version: 20141014085522) do
 
   create_table "authentication_tokens", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "auth_token"
+  end
+
+  create_table "cars", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.integer  "total_passenger", limit: 8
+    t.string   "total_luggage"
   end
 
   create_table "users", force: true do |t|

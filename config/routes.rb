@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       post 'forgot_password', to: 'sessions#forgot_password', :as => :forgot_password
       post 'change_password', to: 'sessions#change_password', :as => :change_password
       post 'update_profile', to: 'users#update_profile', :as => :update_profile
+      post 'create_car', to: 'cars#create_car', :as => :create_car   
    end
   end
 
