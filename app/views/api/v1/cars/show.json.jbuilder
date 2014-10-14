@@ -1,0 +1,1 @@
+json.(@car,:id,:name,:total_passenger,:total_luggage)
