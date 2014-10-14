@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20141013134426) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "mobile_number",          limit: 8,              null: false
-    t.integer  "device_id"
+    t.string   "device_id"
     t.string   "device_type"
   end
 
