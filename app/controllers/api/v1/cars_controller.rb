@@ -13,6 +13,17 @@ class Api::V1::CarsController < Api::V1::BaseController
     end
   end
 
+  ##list of cars
+  def car_list
+    @cars = Car.all
+    if @cars.present?
+      Rails.logger.debug "===========#{@cars.inspect}============"
+      render :file => 'api/v1/cars/index'
+    else
+      render_json({:errors => "No cars yet.!", :status => 404}.to_json)
+    end   
+  end
+
   private
   def car_params
     params.require(:car).permit(:name,:total_passenger,:total_luggage)

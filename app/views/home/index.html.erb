@@ -101,4 +101,13 @@
           {name: 'car[total_luggage]', description: 'totle waight of luggage'}
         ],
         options: {}} %>
+
+  <!-- List all groups -->
+  <%= render partial: 'api', locals: {
+        link_name: 'List all cars', 
+        link_href: 'car_list',
+        link_method: 'POST',
+        original_link:  api_car_list_path,
+        parameters: [],
+        options: {}} %>
 </span> 
