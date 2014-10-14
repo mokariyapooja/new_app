@@ -9,7 +9,7 @@ class Api::V1::SessionsController < Api::V1::BaseController
       @token = @user.authentication_tokens.build
       @token.save
     else
-      render_json(:errors => @user.display_errors, :status => 404)       
+      render_json({:errors => @user.display_errors, :status => 404}.to_json)       
     end   
   end
 
