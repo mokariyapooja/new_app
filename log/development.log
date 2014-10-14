@@ -7888,3 +7888,735 @@ Processing by Api::V1::SessionsController#change_password as JSON
   Rendered text template (0.0ms)
 Filter chain halted as :define_current_user rendered or redirected
 Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 192.168.1.10 at 2014-10-14 16:03:01 +0530
+Processing by HomeController#index as HTML
+  Rendered home/_index.html.erb (152.0ms)
+  Rendered home/_api.html.erb (37.5ms)
+  Rendered home/_api.html.erb (7.2ms)
+  Rendered home/_api.html.erb (0.6ms)
+  Rendered home/_api.html.erb (12.1ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.5ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (603.5ms)
+  Rendered home/index.html.erb within layouts/application (1360.1ms)
+Completed 500 Internal Server Error in 1841ms
+
+ActionView::Template::Error (undefined local variable or method `parameters' for #<#<Class:0xbdb7094>:0xbdb6b08>):
+    12:       Method: <span id="method_<%= link_href %>"><%= link_method %></span>
+    13:       <br>
+    14:       <br>
+    15:       <% if parameters.present? %>
+    16:         <br>
+    17:         <form class="form_<%= link_href %>">
+    18:           <br>
+  app/views/home/_api.html.erb:15:in `_app_views_home__api_html_erb__783908427_99123490'
+  app/views/home/index.html.erb:106:in `_app_views_home_index_html_erb___267076310_99462960'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (254.1ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (175.1ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (596.8ms)
+
+
+Started GET "/" for 192.168.1.10 at 2014-10-14 16:04:15 +0530
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (114.1ms)
+Completed 500 Internal Server Error in 271ms
+
+SyntaxError (/home/pm/apsolute/Api/new_app/app/views/home/index.html.erb:112: syntax error, unexpected tIDENTIFIER, expecting '}'
+        options: {}} );@output_buffer.safe_append='
+               ^
+/home/pm/apsolute/Api/new_app/app/views/home/index.html.erb:114: syntax error, unexpected keyword_ensure, expecting ')'
+/home/pm/apsolute/Api/new_app/app/views/home/index.html.erb:116: syntax error, unexpected keyword_end, expecting ')'):
+  app/views/home/index.html.erb:112: syntax error, unexpected tIDENTIFIER, expecting '}'
+  app/views/home/index.html.erb:114: syntax error, unexpected keyword_ensure, expecting ')'
+  app/views/home/index.html.erb:116: syntax error, unexpected keyword_end, expecting ')'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (63.0ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (87.7ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (82.2ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (427.5ms)
+
+
+Started GET "/" for 192.168.1.10 at 2014-10-14 16:04:31 +0530
+Processing by HomeController#index as HTML
+  Rendered home/_index.html.erb (10.0ms)
+  Rendered home/_api.html.erb (11.5ms)
+  Rendered home/_api.html.erb (0.4ms)
+  Rendered home/_api.html.erb (0.7ms)
+  Rendered home/_api.html.erb (0.4ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.6ms)
+  Rendered home/_api.html.erb (0.4ms)
+  Rendered home/index.html.erb within layouts/application (313.9ms)
+Completed 200 OK in 2908ms (Views: 2893.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/v2.css?body=1" for 192.168.1.10 at 2014-10-14 16:04:36 +0530
+
+
+Started GET "/assets/style.css?body=1" for 192.168.1.10 at 2014-10-14 16:04:36 +0530
+
+
+Started GET "/assets/jquery-1.7.2.js?body=1" for 192.168.1.10 at 2014-10-14 16:04:37 +0530
+
+
+Started GET "/assets/application.css?body=1" for 192.168.1.10 at 2014-10-14 16:04:37 +0530
+
+
+Started GET "/assets/table.css?body=1" for 192.168.1.10 at 2014-10-14 16:04:37 +0530
+
+
+Started GET "/assets/prettyprint.js?body=1" for 192.168.1.10 at 2014-10-14 16:04:37 +0530
+
+
+Started GET "/assets/application.js?body=1" for 192.168.1.10 at 2014-10-14 16:04:37 +0530
+
+
+Started GET "/assets/bg.png" for 192.168.1.10 at 2014-10-14 16:04:38 +0530
+
+ActionController::RoutingError (No route matches [GET] "/assets/bg.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (90.7ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (44.2ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (175.1ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (821.3ms)
+
+
+Started POST "/api/car_list" for 192.168.1.10 at 2014-10-14 16:04:45 +0530
+Processing by Api::V1::CarsController#car_list as JSON
+  [1m[36mCar Load (63.9ms)[0m  [1mSELECT "cars".* FROM "cars"[0m
+===========#<ActiveRecord::Relation [#<Car id: 1, created_at: "2014-10-14 09:55:30", updated_at: "2014-10-14 09:55:30", name: ",kmkn", total_passenger: 12, total_luggage: "12 kg">]>============
+  Rendered api/v1/cars/index.json.jbuilder (122.0ms)
+Completed 200 OK in 1086ms (Views: 295.1ms | ActiveRecord: 107.5ms)
+
+
+Started GET "/" for 192.168.1.10 at 2014-10-14 16:07:26 +0530
+Processing by HomeController#index as HTML
+  Rendered home/_index.html.erb (1.1ms)
+  Rendered home/_api.html.erb (0.6ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/index.html.erb within layouts/application (40.1ms)
+Completed 200 OK in 188ms (Views: 186.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/v2.css?body=1" for 192.168.1.10 at 2014-10-14 16:07:27 +0530
+
+
+Started GET "/assets/jquery-1.7.2.js?body=1" for 192.168.1.10 at 2014-10-14 16:07:27 +0530
+
+
+Started GET "/assets/table.css?body=1" for 192.168.1.10 at 2014-10-14 16:07:27 +0530
+
+
+Started GET "/assets/style.css?body=1" for 192.168.1.10 at 2014-10-14 16:07:27 +0530
+
+
+Started GET "/assets/prettyprint.js?body=1" for 192.168.1.10 at 2014-10-14 16:07:27 +0530
+
+
+Started GET "/assets/application.css?body=1" for 192.168.1.10 at 2014-10-14 16:07:27 +0530
+
+
+Started GET "/assets/application.js?body=1" for 192.168.1.10 at 2014-10-14 16:07:27 +0530
+
+
+Started GET "/assets/bg.png" for 192.168.1.10 at 2014-10-14 16:07:34 +0530
+
+ActionController::RoutingError (No route matches [GET] "/assets/bg.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.2ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (24.1ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.0ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (839.7ms)
+
+
+Started POST "/api/car_list" for 192.168.1.10 at 2014-10-14 16:07:41 +0530
+Processing by Api::V1::CarsController#car_list as JSON
+  [1m[35mCar Load (35.6ms)[0m  SELECT "cars".* FROM "cars"
+===========#<ActiveRecord::Relation [#<Car id: 1, created_at: "2014-10-14 09:55:30", updated_at: "2014-10-14 09:55:30", name: ",kmkn", total_passenger: 12, total_luggage: "12 kg">]>============
+  Rendered api/v1/cars/index.json.jbuilder (49.0ms)
+Completed 500 Internal Server Error in 144ms
+
+ActionView::Template::Error (undefined method `car' for #<Car:0xb9ca6fc>):
+    2:   json.car_id c.id
+    3:   json.name c.name
+    4: 
+    5:   json.cars c.car do |u|
+    6:     json.name u.name
+    7:     json.total_passenger u.total_passenger
+    8:     json.total_luggage u.total_luggage
+  app/views/api/v1/cars/index.json.jbuilder:5:in `block in _app_views_api_v__cars_index_json_jbuilder__947161985_97404410'
+  app/views/api/v1/cars/index.json.jbuilder:1:in `_app_views_api_v__cars_index_json_jbuilder__947161985_97404410'
+  app/controllers/api/v1/cars_controller.rb:21:in `car_list'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (25.7ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.2ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (68.0ms)
+
+
+Started POST "/api/car_list" for 192.168.1.10 at 2014-10-14 16:08:07 +0530
+Processing by Api::V1::CarsController#car_list as JSON
+  [1m[36mCar Load (0.4ms)[0m  [1mSELECT "cars".* FROM "cars"[0m
+===========#<ActiveRecord::Relation [#<Car id: 1, created_at: "2014-10-14 09:55:30", updated_at: "2014-10-14 09:55:30", name: ",kmkn", total_passenger: 12, total_luggage: "12 kg">]>============
+  Rendered api/v1/cars/index.json.jbuilder (21.5ms)
+Completed 200 OK in 50ms (Views: 45.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/car_list" for 192.168.1.10 at 2014-10-14 16:09:00 +0530
+Processing by Api::V1::CarsController#car_list as JSON
+  [1m[35mCar Load (0.3ms)[0m  SELECT "cars".* FROM "cars"
+===========#<ActiveRecord::Relation [#<Car id: 1, created_at: "2014-10-14 09:55:30", updated_at: "2014-10-14 09:55:30", name: ",kmkn", total_passenger: 12, total_luggage: "12 kg">]>============
+  Rendered api/v1/cars/index.json.jbuilder (16.5ms)
+Completed 200 OK in 24ms (Views: 21.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/create_car" for 192.168.1.10 at 2014-10-14 16:10:02 +0530
+Processing by Api::V1::CarsController#create_car as JSON
+  Parameters: {"car"=>{"name"=>"", "total_passenger"=>"", "total_luggage"=>""}}
+  [1m[36m (0.7ms)[0m  [1mbegin transaction[0m
+  [1m[35mCar Exists (0.3ms)[0m  SELECT  1 AS one FROM "cars"  WHERE "cars"."name" = '' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  1 AS one FROM "cars"  WHERE "cars"."name" = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 229ms (Views: 1.0ms | ActiveRecord: 21.4ms)
+  [1m[36mCar Load (2724.3ms)[0m  [1mSELECT "cars".* FROM "cars"[0m
+  [1m[35m (2675.4ms)[0m  begin transaction
+  [1m[36mSQL (808.6ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 1]]
+  [1m[35m (150.3ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 2]]
+  [1m[36m (152.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 3]]
+  [1m[35m (142.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 4]]
+  [1m[36m (165.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 5]]
+  [1m[35m (5610.7ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 6]]
+  [1m[36m (142.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "cars" WHERE "cars"."id" = ?[0m  [["id", 7]]
+  [1m[35m (131.5ms)[0m  commit transaction
+  [1m[36m (178.4ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "cars" WHERE "cars"."id" = ?  [["id", 8]]
+  [1m[36m (151.2ms)[0m  [1mcommit transaction[0m
+
+
+Started POST "/api/car_list" for 192.168.1.10 at 2014-10-14 16:11:16 +0530
+Processing by Api::V1::CarsController#car_list as JSON
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT "cars".* FROM "cars"[0m
+===========#<ActiveRecord::Relation [#<Car id: 1, created_at: "2014-10-14 09:55:30", updated_at: "2014-10-14 09:55:30", name: ",kmkn", total_passenger: 12, total_luggage: "12 kg">]>============
+  Rendered api/v1/cars/index.json.jbuilder (0.5ms)
+Completed 200 OK in 72ms (Views: 69.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/car_list" for 192.168.1.10 at 2014-10-14 16:11:20 +0530
+Processing by Api::V1::CarsController#car_list as JSON
+  [1m[35mCar Load (0.4ms)[0m  SELECT "cars".* FROM "cars"
+===========#<ActiveRecord::Relation [#<Car id: 1, created_at: "2014-10-14 09:55:30", updated_at: "2014-10-14 09:55:30", name: ",kmkn", total_passenger: 12, total_luggage: "12 kg">]>============
+  Rendered api/v1/cars/index.json.jbuilder (0.5ms)
+Completed 200 OK in 44ms (Views: 40.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 192.168.1.10 at 2014-10-14 16:11:24 +0530
+Processing by HomeController#index as HTML
+  Rendered home/_index.html.erb (1.4ms)
+  Rendered home/_api.html.erb (0.6ms)
+  Rendered home/_api.html.erb (0.4ms)
+  Rendered home/_api.html.erb (0.6ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.4ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/index.html.erb within layouts/application (70.3ms)
+Completed 200 OK in 268ms (Views: 266.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/table.css?body=1" for 192.168.1.10 at 2014-10-14 16:11:25 +0530
+
+
+Started GET "/assets/style.css?body=1" for 192.168.1.10 at 2014-10-14 16:11:25 +0530
+
+
+Started GET "/assets/jquery-1.7.2.js?body=1" for 192.168.1.10 at 2014-10-14 16:11:25 +0530
+
+
+Started GET "/assets/application.css?body=1" for 192.168.1.10 at 2014-10-14 16:11:25 +0530
+
+
+Started GET "/assets/application.js?body=1" for 192.168.1.10 at 2014-10-14 16:11:25 +0530
+
+
+Started GET "/assets/v2.css?body=1" for 192.168.1.10 at 2014-10-14 16:11:25 +0530
+
+
+Started GET "/assets/prettyprint.js?body=1" for 192.168.1.10 at 2014-10-14 16:11:26 +0530
+
+
+Started GET "/assets/bg.png" for 192.168.1.10 at 2014-10-14 16:11:29 +0530
+
+ActionController::RoutingError (No route matches [GET] "/assets/bg.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.7ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (44.1ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (2.7ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (641.2ms)
+
+
+Started POST "/api/car_list" for 192.168.1.10 at 2014-10-14 16:11:34 +0530
+Processing by Api::V1::CarsController#car_list as JSON
+  [1m[36mCar Load (0.3ms)[0m  [1mSELECT "cars".* FROM "cars"[0m
+===========#<ActiveRecord::Relation [#<Car id: 1, created_at: "2014-10-14 09:55:30", updated_at: "2014-10-14 09:55:30", name: ",kmkn", total_passenger: 12, total_luggage: "12 kg">]>============
+  Rendered api/v1/cars/index.json.jbuilder (0.4ms)
+Completed 200 OK in 91ms (Views: 88.4ms | ActiveRecord: 0.3ms)
+  [1m[35mCar Load (233.0ms)[0m  SELECT  "cars".* FROM "cars"   ORDER BY "cars"."id" DESC LIMIT 1
+
+
+Started GET "/" for 192.168.1.10 at 2014-10-14 16:13:08 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/_index.html.erb (1.6ms)
+  Rendered home/_api.html.erb (4.0ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/index.html.erb within layouts/application (110.5ms)
+Completed 200 OK in 1935ms (Views: 1819.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/v2.css?body=1" for 192.168.1.10 at 2014-10-14 16:13:14 +0530
+
+
+Started GET "/assets/application.css?body=1" for 192.168.1.10 at 2014-10-14 16:13:14 +0530
+
+
+Started GET "/assets/style.css?body=1" for 192.168.1.10 at 2014-10-14 16:13:14 +0530
+
+
+Started GET "/assets/jquery-1.7.2.js?body=1" for 192.168.1.10 at 2014-10-14 16:13:14 +0530
+
+
+Started GET "/assets/prettyprint.js?body=1" for 192.168.1.10 at 2014-10-14 16:13:14 +0530
+
+
+Started GET "/assets/application.js?body=1" for 192.168.1.10 at 2014-10-14 16:13:14 +0530
+
+
+Started GET "/assets/table.css?body=1" for 192.168.1.10 at 2014-10-14 16:13:14 +0530
+
+
+Started GET "/assets/bg.png" for 192.168.1.10 at 2014-10-14 16:13:15 +0530
+
+ActionController::RoutingError (No route matches [GET] "/assets/bg.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.2ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (168.7ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (356.6ms)
+
+
+Started POST "/api/car_list" for 192.168.1.10 at 2014-10-14 16:13:36 +0530
+Processing by Api::V1::CarsController#car_list as JSON
+  [1m[35mCar Load (26.6ms)[0m  SELECT "cars".* FROM "cars"
+===========#<ActiveRecord::Relation [#<Car id: 1, created_at: "2014-10-14 09:55:30", updated_at: "2014-10-14 09:55:30", name: ",kmkn", total_passenger: 12, total_luggage: "12 kg">]>============
+  Rendered api/v1/cars/index.json.jbuilder (81.2ms)
+Completed 200 OK in 236ms (Views: 125.1ms | ActiveRecord: 27.1ms)
+  [1m[36m (298.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (152.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20141013091952)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (25.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141013091952"]]
+  [1m[36m (207.6ms)[0m  [1mcommit transaction[0m
+Migrating to AddFiledToUser (20141013095409)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "users" ADD "user_name" varchar(255)[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "users" ADD "first_name" varchar(255)
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD "last_name" varchar(255)[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "users" ADD "mobile_number" integer
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD "device_id" integer[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "users" ADD "device_type" varchar(255)
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141013095409"]]
+  [1m[35m (145.7ms)[0m  commit transaction
+Migrating to CreateAuthenticationTokens (20141013104741)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "authentication_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141013104741"]]
+  [1m[35m (154.1ms)[0m  commit transaction
+Migrating to AddFiledToAuthenticationToken (20141013104857)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "authentication_tokens" ADD "user_id" integer
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "authentication_tokens" ADD "auth_token" varchar(255)[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141013104857"]]
+  [1m[36m (140.6ms)[0m  [1mcommit transaction[0m
+Migrating to ChangeFildTypeUser (20141013134426)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "user_name" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "mobile_number" integer, "device_id" integer, "device_type" varchar(255)) [0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "users"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "users"
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "user_name" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "mobile_number" integer(8) NOT NULL, "device_id" integer, "device_type" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "ausers"[0m
+  [1m[35m (0.2ms)[0m  DROP TABLE "ausers"
+  [1m[36m (0.3ms)[0m  [1mCREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "user_name" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "mobile_number" integer(8) NOT NULL, "device_id" integer, "device_type" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "users"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "users"
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "user_name" varchar(255), "first_name" varchar(255), "last_name" varchar(255), "mobile_number" integer(8) NOT NULL, "device_id" varchar(255), "device_type" varchar(255)) [0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "ausers"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "ausers"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141013134426"]]
+  [1m[35m (148.1ms)[0m  commit transaction
+Migrating to CreateCars (20141014083653)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "cars" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141014083653"]]
+  [1m[35m (145.5ms)[0m  commit transaction
+Migrating to AddFiledToCars (20141014085522)
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "cars" ADD "name" varchar(255)
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "cars" ADD "total_passenger" integer(8)[0m
+  [1m[35m (0.5ms)[0m  ALTER TABLE "cars" ADD "total_luggage" varchar(255)
+  [1m[36mSQL (0.9ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141014085522"]]
+  [1m[35m (158.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+
+
+Started GET "/" for 192.168.1.10 at 2014-10-14 16:14:40 +0530
+Processing by HomeController#index as HTML
+  Rendered home/_index.html.erb (1.1ms)
+  Rendered home/_api.html.erb (1.5ms)
+  Rendered home/_api.html.erb (0.4ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.1ms)
+  Rendered home/index.html.erb within layouts/application (52.8ms)
+Completed 200 OK in 262ms (Views: 261.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/prettyprint.js?body=1" for 192.168.1.10 at 2014-10-14 16:14:42 +0530
+
+
+Started GET "/assets/style.css?body=1" for 192.168.1.10 at 2014-10-14 16:14:42 +0530
+
+
+Started GET "/assets/v2.css?body=1" for 192.168.1.10 at 2014-10-14 16:14:42 +0530
+
+
+Started GET "/assets/application.css?body=1" for 192.168.1.10 at 2014-10-14 16:14:42 +0530
+
+
+Started GET "/assets/application.js?body=1" for 192.168.1.10 at 2014-10-14 16:14:42 +0530
+
+
+Started GET "/assets/jquery-1.7.2.js?body=1" for 192.168.1.10 at 2014-10-14 16:14:42 +0530
+
+
+Started GET "/assets/table.css?body=1" for 192.168.1.10 at 2014-10-14 16:14:42 +0530
+
+
+Started GET "/assets/bg.png" for 192.168.1.10 at 2014-10-14 16:14:43 +0530
+
+ActionController::RoutingError (No route matches [GET] "/assets/bg.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.9ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.3ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.7ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (54.5ms)
+
+
+Started POST "/api/car_list" for 192.168.1.10 at 2014-10-14 16:14:46 +0530
+Processing by Api::V1::CarsController#car_list as JSON
+  [1m[36mCar Load (39.3ms)[0m  [1mSELECT "cars".* FROM "cars"[0m
+  Rendered text template (0.1ms)
+Completed 200 OK in 85ms (Views: 32.0ms | ActiveRecord: 39.3ms)
+
+
+Started POST "/api/create_car" for 192.168.1.10 at 2014-10-14 16:14:53 +0530
+Processing by Api::V1::CarsController#create_car as JSON
+  Parameters: {"car"=>{"name"=>"", "total_passenger"=>"", "total_luggage"=>""}}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mCar Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "cars"  WHERE "cars"."name" = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  1 AS one FROM "cars"  WHERE "cars"."name" = '' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 212ms (Views: 0.9ms | ActiveRecord: 1.3ms)
