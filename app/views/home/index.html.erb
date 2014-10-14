@@ -108,6 +108,8 @@
         link_href: 'car_list',
         link_method: 'POST',
         original_link:  api_car_list_path,
-        parameters: [],
+        parameters: [
+          {name: 'auth_token', description: 'Authentication Token which you will get from login or register api', required: 1 }
+        ],
         options: {}} %>
 </span> 

@@ -1,5 +1,8 @@
 class Api::V1::CarsController < Api::V1::BaseController
  
+  ##Filter
+  before_action :define_current_user, only: [:car_list]
+
   ##create cars
   def create_car
     @car = Car.create(car_params)
