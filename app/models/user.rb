@@ -18,9 +18,13 @@ class User < ActiveRecord::Base
       return nil unless  email.present? or password.present?
         u = User.find_by_email(email)
        (u.present? && u.valid_password?(password)) ? u : nil    
-    end 
+    end
+
+    def invalid_credential
+      "Email or Password is not valid"
+    end
   end
-  
+   
   ##for error masseges
   def display_errors
     self.errors.full_messages.join(', ')
