@@ -89,4 +89,6 @@ Rails.application.configure do
     :user_name =>      "pooja.apsolute@gmail.com",
     :password =>       Rails.application.secrets.mandrill_api_key
   }
+
+  DOMAIN_CONFIG = "http://new-app-for-api.herokuapp.com"
 end
