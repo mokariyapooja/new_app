@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014085522) do
+ActiveRecord::Schema.define(version: 20141014112653) do
 
   create_table "authentication_tokens", force: true do |t|
     t.datetime "created_at"
@@ -24,8 +24,12 @@ ActiveRecord::Schema.define(version: 20141014085522) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.integer  "total_passenger", limit: 8
+    t.integer  "total_passenger",    limit: 8
     t.string   "total_luggage"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", force: true do |t|

@@ -6,11 +6,13 @@ class Api::V1::CarsController < Api::V1::BaseController
   ##create cars
   def create_car
     @car = Car.create(car_params)
-    if @car.save
-      name = @car.name
-      render :file => 'api/v1/cars/show'            
+    if params[:image].present?
+      @car.convert(params[:image])
+    end
+    unless @car.save
+      render_json({:errors => @car.display_errors, :status => 404}.to_json)
     else
-      render_json({:errors => @car.display_errors, :status => 404}.to_json)   
+      render :file => 'api/v1/cars/show'
     end
   end
 

@@ -1,1 +1,1 @@
-json.(@car,:id,:name,:total_passenger,:total_luggage)
+json.(@car,:id,:name,:total_passenger,:total_luggage,:image_url)

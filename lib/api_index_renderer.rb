@@ -16,7 +16,8 @@ class ApiIndexRenderer
       index_arr << ApiIndexRenderer.new("Forgot password", "forgot_password", "POST")
       index_arr << ApiIndexRenderer.new("Logout", "sing_out", "GET")
       index_arr << ApiIndexRenderer.new("Update Profile", "update_profile", "POST")
-      index_arr << ApiIndexRenderer.new("create_car", "create_car", "POST")
+      index_arr << ApiIndexRenderer.new("Create Car", "create_car", "POST")
+      index_arr << ApiIndexRenderer.new("List Car", "list_car", "POST")
       index_arr
     end    
   end

@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 gem 'devise'
 #for send mail
 gem 'mandrill-rails'
+#for uplode image
+gem "paperclip"
