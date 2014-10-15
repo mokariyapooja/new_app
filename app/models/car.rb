@@ -5,7 +5,6 @@ class Car < ActiveRecord::Base
 
   ##validations 
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
-  validates_attachment_presence :image
   validates :name, presence: true, uniqueness: true
 
   ##image base64 convert mathode
