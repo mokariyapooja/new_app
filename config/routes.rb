@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  #devise_for :drivers
+  devise_for :drivers,:controllers => { :registrations => "driver/registrations", :passwords => "driver/passwords",:confirmations => "driver/confirmations",:sessions=> "driver/sessions"}, :skip => [:registrations]
+  devise_for :users 
   root  to: 'home#index'
   namespace :api , :defaults => { :format => 'json' } do
-    scope :module => :v1 do 
+    scope :module => :v1 do
       post 'register', to: 'sessions#sing_up',  :as => :signup
       post 'login', to: 'sessions#sing_in', :as => :login
       get 'logout', to: 'sessions#sing_out' , :as => :logout
@@ -11,6 +13,15 @@ Rails.application.routes.draw do
       post 'update_profile', to: 'users#update_profile', :as => :update_profile
       post 'create_car', to: 'cars#create_car', :as => :create_car   
       post 'car_list', to: 'cars#car_list', :as => :car_list
+      
+      namespace :drivers do
+        post 'register', to: 'sessions#sing_up',  :as => :signup
+        post 'login', to: 'sessions#sing_in', :as => :login
+        get 'logout', to: 'sessions#sing_out' , :as => :logout
+        post 'forgot_password', to: 'sessions#forgot_password', :as => :forgot_password
+        post 'change_password', to: 'sessions#change_password', :as => :change_password
+        post 'update_profile', to: 'drivers#update_profile', :as => :update_profile
+      end
    end
   end
 

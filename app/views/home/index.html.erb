@@ -6,7 +6,7 @@
 <span class='right_panel'> 
    
   
-  <!-- Sign Up Api -->
+  <!-- User Sign Up Api -->
   <%= render partial: 'api', locals: {
         link_name: 'Sign Up', 
         link_href: 'signup',
@@ -24,7 +24,7 @@
         ],
         options: {}} %>
      
-  <!-- Login Api -->
+  <!--User Login Api -->
   <%= render partial: 'api', locals: {
         link_name: 'Login', 
         link_href: 'login',
@@ -38,7 +38,7 @@
         ],
         options: {}} %>
 
-  <!-- Change password-->
+  <!-- User Change password-->
   <%= render partial: 'api', locals: {
         link_name: 'Change Password', 
         link_href: 'change_password',
@@ -52,7 +52,7 @@
         ],
         options: {}} %>
 
-  <!-- Forgot password -->
+  <!-- User Forgot password -->
   <%= render partial: 'api', locals: {
         link_name: 'Forgot Password', 
         link_href: 'forgot_password',
@@ -63,18 +63,8 @@
         ],
         options: {}} %>
 
-  <!-- Logout Api -->
-  <%= render partial: 'api', locals: {
-        link_name: 'Logout', 
-        link_href: 'logout',
-        link_method: 'GET',
-        original_link:  api_logout_path,
-        parameters: [
-          {name: 'auth_token', description: 'Authentication Token which you will get from login or register api', required: 1 }
-        ],
-        options: {}} %>
-
-  <!-- Update Profile Api -->
+  
+  <!-- User Update Profile Api -->
     <%= render partial: 'api', locals: {
           link_name: 'Update Profile', 
           link_href: 'update_profile',
@@ -88,14 +78,26 @@
           ],
           options: {}} %>
 
+  <!-- User Logout Api -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Logout', 
+        link_href: 'logout',
+        link_method: 'GET',
+        original_link:  api_logout_path,
+        parameters: [
+          {name: 'auth_token', description: 'Authentication Token which you will get from login or register api', required: 1 }
+        ],
+        options: {}} %>
 
-  <!-- Logout Api -->
+
+  <!-- Create Car Api -->
   <%= render partial: 'api', locals: {
         link_name: 'create_car', 
         link_href: 'create_car',
         link_method: 'POST',
         original_link:  api_create_car_path,
         parameters: [
+          {name: 'auth_token', description: 'Authentication Token which you will get from login or register api', required: 1 },
           {name: 'car[name]', description: 'Car name', required: 1},
           {name: 'car[total_passenger]', description: 'number of persone'},
           {name: 'car[total_luggage]', description: 'totle waight of luggage'},
@@ -103,7 +105,7 @@
         ],
         options: {}} %>
 
-  <!-- List all groups -->
+  <!-- List all cars -->
   <%= render partial: 'api', locals: {
         link_name: 'List all cars', 
         link_href: 'car_list',
@@ -113,4 +115,89 @@
           {name: 'auth_token', description: 'Authentication Token which you will get from login or register api', required: 1 }
         ],
         options: {}} %>
+
+                                    <!--driver model-->
+
+   <!-- Driver Sign Up Api -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Driver Sign Up', 
+        link_href: 'driver_signup',
+        link_method: 'POST',
+        original_link:   api_drivers_signup_path,
+        parameters: [
+          {name: 'driver[first_name]', description: 'First name'},
+          {name: 'driver[last_name]', description: 'Last name'},
+          {name: 'driver[email]', description: 'Email Address of Driver', required: 1 },
+          {name: 'driver[password]', description: 'Password', required: 1},
+          {name: 'driver[password_confirmation]', description: 'Password', required: 1},
+          {name: 'driver[mobile_number]', description: 'Contact number'},
+          {name: 'driver[device_id]', description: 'Device id'},
+          {name: 'driver[device_type]', description: 'Device type (iphone/android)'}
+        ],
+        options: {}} %>
+
+  <!--Driver Login Api -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Driver Login', 
+        link_href: 'driver_login',
+        link_method: 'POST',
+        original_link:  api_drivers_login_path,
+        parameters: [
+          {name: 'email', description: 'email of User', required: 1 },
+          {name: 'password', description: 'Password', required: 1},
+          {name: 'device_id', description: 'Device id'},
+          {name: 'device_type', description: 'Device type (iphone/android)'}
+        ],
+        options: {}} %>
+
+   <!-- Driver Change password-->
+  <%= render partial: 'api', locals: {
+        link_name: 'Driver Change Password', 
+        link_href: 'driver_change_password',
+        link_method: 'POST',
+        original_link:  api_drivers_change_password_path,
+        parameters: [
+          {name: 'auth_token', description: 'Authentication Token which you will get from login or register api', required: 1 },
+          {name: 'driver[current_password]', description: 'Current Password', required: 1},
+          {name: 'driver[password]', description: 'New Password', required: 1},
+          {name: 'driver[password_confirmation]', description: 'Confirm new Password', required: 1}
+        ],
+        options: {}} %>
+
+ <!-- Driver Forgot password -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Driver Forgot Password', 
+        link_href: 'driver_forgot_password',
+        link_method: 'POST',
+        original_link:  api_drivers_forgot_password_path,
+        parameters: [
+          {name: 'email', description: 'email of User', required: 1 }
+        ],
+        options: {}} %>
+  
+  <!-- Driver Update Profile Api -->
+    <%= render partial: 'api', locals: {
+          link_name: 'Driver Update Profile', 
+          link_href: 'driver_update_profile',
+          link_method: 'POST',
+          original_link:   api_drivers_update_profile_path,
+          parameters: [
+            {name: 'auth_token', description: 'Authentication Token which you will get from login or register api', required: 1 },
+            {name: 'driver[first_name]', description: 'First name'},
+            {name: 'driver[last_name]', description: 'Last name'},
+            {name: 'driver[mobile_number]', description: 'mobile_number Address of User'}
+          ],
+          options: {}} %>
+
+  <!-- Driver Logout Api -->
+  <%= render partial: 'api', locals: {
+        link_name: 'Driver Logout', 
+        link_href: 'driver_logout',
+        link_method: 'GET',
+        original_link:  api_drivers_logout_path,
+        parameters: [
+          {name: 'auth_token', description: 'Authentication Token which you will get from login or register api', required: 1 }
+        ],
+        options: {}} %>
+
 </span> 

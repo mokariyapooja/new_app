@@ -18,6 +18,12 @@ class ApiIndexRenderer
       index_arr << ApiIndexRenderer.new("Update Profile", "update_profile", "POST")
       index_arr << ApiIndexRenderer.new("Create Car", "create_car", "POST")
       index_arr << ApiIndexRenderer.new("List Car", "list_car", "POST")
+      index_arr << ApiIndexRenderer.new("Driver Signup", "sign_up", "POST")
+      index_arr << ApiIndexRenderer.new("Driver Login", "sing_in", "POST")
+      index_arr << ApiIndexRenderer.new("Driver Change password", "change_password", "POST")
+      index_arr << ApiIndexRenderer.new("Driver Forgot password", "forgot_password", "POST")
+      index_arr << ApiIndexRenderer.new("Driver Logout", "sing_out", "GET")
+      index_arr << ApiIndexRenderer.new("Driver Update Profile", "update_profile", "POST")
       index_arr
     end    
   end

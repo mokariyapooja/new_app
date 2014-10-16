@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014112653) do
+ActiveRecord::Schema.define(version: 20141016073257) do
 
   create_table "authentication_tokens", force: true do |t|
     t.datetime "created_at"
@@ -32,6 +32,36 @@ ActiveRecord::Schema.define(version: 20141014112653) do
     t.datetime "image_updated_at"
   end
 
+  create_table "driver_authentication_tokens", force: true do |t|
+    t.integer  "driver_id"
+    t.string   "auth_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "drivers", force: true do |t|
+    t.string   "email",                            default: "", null: false
+    t.string   "encrypted_password",               default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                    default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "mobile_number",          limit: 8
+    t.string   "device_id"
+    t.string   "device_type"
+  end
+
+  add_index "drivers", ["email"], name: "index_drivers_on_email", unique: true
+  add_index "drivers", ["reset_password_token"], name: "index_drivers_on_reset_password_token", unique: true
+
   create_table "users", force: true do |t|
     t.string   "email",                            default: "", null: false
     t.string   "encrypted_password",               default: "", null: false
@@ -45,7 +75,6 @@ ActiveRecord::Schema.define(version: 20141014112653) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "user_name"
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "mobile_number",          limit: 8,              null: false
