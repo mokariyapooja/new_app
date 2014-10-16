@@ -200,4 +200,15 @@
         ],
         options: {}} %>
 
+   <!-- List all drivers -->
+  <%= render partial: 'api', locals: {
+        link_name: 'List all drivers', 
+        link_href: 'driver_list',
+        link_method: 'POST',
+        original_link:  api_drivers_driver_list_path,
+        parameters: [
+          {name: 'auth_token', description: 'Authentication Token which you will get from login or register api', required: 1 }
+        ],
+        options: {}} %>
+
 </span> 

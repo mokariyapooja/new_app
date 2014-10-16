@@ -21,6 +21,7 @@ Rails.application.routes.draw do
         post 'forgot_password', to: 'sessions#forgot_password', :as => :forgot_password
         post 'change_password', to: 'sessions#change_password', :as => :change_password
         post 'update_profile', to: 'drivers#update_profile', :as => :update_profile
+        post 'driver_list', to: 'drivers#driver_list', :as => :driver_list
       end
    end
   end

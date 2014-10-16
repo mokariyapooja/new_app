@@ -24,6 +24,7 @@ class ApiIndexRenderer
       index_arr << ApiIndexRenderer.new("Driver Forgot password", "forgot_password", "POST")
       index_arr << ApiIndexRenderer.new("Driver Logout", "sing_out", "GET")
       index_arr << ApiIndexRenderer.new("Driver Update Profile", "update_profile", "POST")
+      index_arr << ApiIndexRenderer.new("Driver List", "driver_list", "POST")
       index_arr
     end    
   end
