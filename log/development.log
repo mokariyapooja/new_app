@@ -21483,3 +21483,456 @@ Processing by Api::V1::UsersController#update_profile as JSON
   [1m[35m (0.1ms)[0m  commit transaction
   Rendered api/v1/users/update_profile.json.jbuilder (0.4ms)
 Completed 200 OK in 49ms (Views: 14.9ms | ActiveRecord: 2.2ms)
+
+
+Started POST "/api/change_password" for 192.168.1.7 at 2014-10-17 12:29:50 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::SessionsController#change_password as JSON
+  Parameters: {"auth_token"=>"d8815c97df56948ba1b0df142f3802c7", "user"=>{"current_password"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35mAuthenticationToken Load (0.2ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'd8815c97df56948ba1b0df142f3802c7' LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.2ms)[0m  begin transaction
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "encrypted_password" = ?, "updated_at" = ? WHERE "users"."id" = 4[0m  [["encrypted_password", "$2a$10$1gjg304ersBx.y5EXBHb/.iKB9WwZGph1oHQxLMEdlw6dmz95tyOa"], ["updated_at", "2014-10-17 06:59:51.256429"]]
+  [1m[35m (148.7ms)[0m  commit transaction
+  Rendered text template (0.1ms)
+Completed 200 OK in 488ms (Views: 25.3ms | ActiveRecord: 151.0ms)
+
+
+Started POST "/api/login" for 192.168.1.7 at 2014-10-17 12:30:25 +0530
+Processing by Api::V1::SessionsController#sing_in as JSON
+  Parameters: {"email"=>"m12@gmail.com", "password"=>"[FILTERED]", "device_id"=>"", "device_type"=>""}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'm12@gmail.com' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 116ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/drivers/register" for 192.168.1.7 at 2014-10-17 12:30:52 +0530
+Processing by Api::V1::Drivers::SessionsController#sing_up as JSON
+  Parameters: {"driver"=>{"first_name"=>"", "last_name"=>"", "email"=>"m123@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"12345678956", "device_id"=>"", "device_type"=>""}}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mDriver Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "drivers"  WHERE "drivers"."email" = 'm123@gmail.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "drivers" ("created_at", "device_id", "device_type", "email", "encrypted_password", "first_name", "last_name", "mobile_number", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-17 07:00:52.364798"], ["device_id", ""], ["device_type", ""], ["email", "m123@gmail.com"], ["encrypted_password", "$2a$10$2ZiUfCxpR5RCQfU5sDkQiegPxr1Urkxg.ssBOPEcypemdOBXti70y"], ["first_name", ""], ["last_name", ""], ["mobile_number", 12345678956], ["updated_at", "2014-10-17 07:00:52.364798"]]
+  [1m[36m (144.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mDriverAuthenticationToken Load (0.4ms)[0m  [1mSELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '90c6a1b7f07969baab93ea376387187d' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "driver_authentication_tokens" ("auth_token", "created_at", "driver_id", "updated_at") VALUES (?, ?, ?, ?)  [["auth_token", "90c6a1b7f07969baab93ea376387187d"], ["created_at", "2014-10-17 07:00:52.568875"], ["driver_id", 1], ["updated_at", "2014-10-17 07:00:52.568875"]]
+  [1m[36m (151.0ms)[0m  [1mcommit transaction[0m
+  Rendered api/v1/drivers/sessions/sing_up.json.jbuilder (20.9ms)
+Completed 200 OK in 561ms (Views: 44.2ms | ActiveRecord: 299.6ms)
+
+
+Started POST "/api/drivers/login" for 192.168.1.7 at 2014-10-17 12:31:19 +0530
+Processing by Api::V1::Drivers::SessionsController#sing_in as JSON
+  Parameters: {"email"=>"m123@gmail.com", "password"=>"[FILTERED]", "device_id"=>"", "device_type"=>""}
+  [1m[35mDriver Load (0.5ms)[0m  SELECT  "drivers".* FROM "drivers"  WHERE "drivers"."email" = 'm123@gmail.com' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDriverAuthenticationToken Load (0.2ms)[0m  SELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = 'b16d83ad4027fbccb433e7734e205386' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "driver_authentication_tokens" ("auth_token", "created_at", "driver_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["auth_token", "b16d83ad4027fbccb433e7734e205386"], ["created_at", "2014-10-17 07:01:20.042258"], ["driver_id", 1], ["updated_at", "2014-10-17 07:01:20.042258"]]
+  [1m[35m (137.4ms)[0m  commit transaction
+  Rendered api/v1/drivers/sessions/sing_up.json.jbuilder (0.4ms)
+Completed 200 OK in 261ms (Views: 6.3ms | ActiveRecord: 138.5ms)
+
+
+Started POST "/api/drivers/change_password" for 192.168.1.7 at 2014-10-17 12:31:44 +0530
+Processing by Api::V1::Drivers::SessionsController#change_password as JSON
+  Parameters: {"auth_token"=>"b16d83ad4027fbccb433e7734e205386", "driver"=>{"current_password"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mDriverAuthenticationToken Load (0.3ms)[0m  [1mSELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = 'b16d83ad4027fbccb433e7734e205386' LIMIT 1[0m
+  [1m[35mDriver Load (0.4ms)[0m  SELECT  "drivers".* FROM "drivers"  WHERE "drivers"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.4ms)[0m  UPDATE "drivers" SET "encrypted_password" = ?, "updated_at" = ? WHERE "drivers"."id" = 1  [["encrypted_password", "$2a$10$NoRsjniJzMxe2gaJVQ/Q2uV23q3ZBxl5ER3ne8P0U6saocz.KIkUi"], ["updated_at", "2014-10-17 07:01:44.518494"]]
+  [1m[36m (152.9ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 386ms (Views: 1.0ms | ActiveRecord: 154.1ms)
+
+
+Started POST "/api/drivers/forgot_password" for 192.168.1.7 at 2014-10-17 12:31:57 +0530
+Processing by Api::V1::Drivers::SessionsController#forgot_password as JSON
+  Parameters: {"email"=>"m123@gmail.com"}
+  [1m[35mDriver Load (1.7ms)[0m  SELECT  "drivers".* FROM "drivers"  WHERE "drivers"."email" = 'm123@gmail.com' LIMIT 1
+  [1m[36mDriver Load (0.3ms)[0m  [1mSELECT  "drivers".* FROM "drivers"  WHERE "drivers"."reset_password_token" = 'd1d5dbb0d73a8772a2b724e8fa5949b935dbe1083019c8e2e1fe9d10975b458a'  ORDER BY "drivers"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `reset_password_token`
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "drivers" SET "reset_password_sent_at" = ?, "reset_password_token" = ?, "updated_at" = ? WHERE "drivers"."id" = 1[0m  [["reset_password_sent_at", "2014-10-17 07:01:58.134121"], ["reset_password_token", "d1d5dbb0d73a8772a2b724e8fa5949b935dbe1083019c8e2e1fe9d10975b458a"], ["updated_at", "2014-10-17 07:01:58.134647"]]
+  [1m[35m (166.2ms)[0m  commit transaction
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/devise-3.4.0/app/views/devise/mailer/reset_password_instructions.html.erb (19.1ms)
+
+Devise::Mailer#reset_password_instructions: processed outbound mail in 271.2ms
+
+Sent mail to m123@gmail.com (59.5ms)
+Date: Fri, 17 Oct 2014 12:31:58 +0530
+From: Reset_password@example.com
+Reply-To: Reset_password@example.com
+To: m123@gmail.com
+Message-ID: <5440bee69ff05_189f612022c1033b@pm-Lenovo-B560.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello m123@gmail.com!</p>
+
+<p>Someone has requested a link to change your password. You can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/drivers/password/edit?reset_password_token=tr9ECmhuaQzP1NoL4yQW">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+
+  Rendered text template (0.0ms)
+Completed 200 OK in 1340ms (Views: 0.9ms | ActiveRecord: 168.6ms)
+
+
+Started POST "/api/drivers/update_profile" for 192.168.1.7 at 2014-10-17 12:32:12 +0530
+Processing by Api::V1::Drivers::DriversController#update_profile as JSON
+  Parameters: {"auth_token"=>"b16d83ad4027fbccb433e7734e205386", "driver"=>{"first_name"=>"kj", "last_name"=>"j", "mobile_number"=>""}}
+  [1m[36mDriverAuthenticationToken Load (0.3ms)[0m  [1mSELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = 'b16d83ad4027fbccb433e7734e205386' LIMIT 1[0m
+  [1m[35mDriver Load (0.2ms)[0m  SELECT  "drivers".* FROM "drivers"  WHERE "drivers"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "drivers" SET "first_name" = ?, "last_name" = ?, "mobile_number" = ?, "updated_at" = ? WHERE "drivers"."id" = 1  [["first_name", "kj"], ["last_name", "j"], ["mobile_number", nil], ["updated_at", "2014-10-17 07:02:12.134597"]]
+  [1m[36m (155.9ms)[0m  [1mcommit transaction[0m
+  Rendered api/v1/drivers/drivers/update_profile.json.jbuilder (0.8ms)
+Completed 200 OK in 178ms (Views: 10.4ms | ActiveRecord: 157.0ms)
+
+
+Started POST "/api/drivers/update_profile" for 192.168.1.7 at 2014-10-17 12:32:28 +0530
+Processing by Api::V1::Drivers::DriversController#update_profile as JSON
+  Parameters: {"auth_token"=>"b16d83ad4027fbccb433e7734e205386", "driver"=>{"first_name"=>"kj", "last_name"=>"", "mobile_number"=>"12345678956"}}
+  [1m[35mDriverAuthenticationToken Load (0.4ms)[0m  SELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = 'b16d83ad4027fbccb433e7734e205386' LIMIT 1
+  [1m[36mDriver Load (0.1ms)[0m  [1mSELECT  "drivers".* FROM "drivers"  WHERE "drivers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "drivers" SET "last_name" = ?, "mobile_number" = ?, "updated_at" = ? WHERE "drivers"."id" = 1[0m  [["last_name", ""], ["mobile_number", 12345678956], ["updated_at", "2014-10-17 07:02:28.588673"]]
+  [1m[35m (170.8ms)[0m  commit transaction
+  Rendered api/v1/drivers/drivers/update_profile.json.jbuilder (0.4ms)
+Completed 200 OK in 185ms (Views: 7.2ms | ActiveRecord: 171.9ms)
+
+
+Started GET "/api/drivers/logout?auth_token=b16d83ad4027fbccb433e7734e205386" for 192.168.1.7 at 2014-10-17 12:32:49 +0530
+Processing by Api::V1::Drivers::SessionsController#sing_out as JSON
+  Parameters: {"auth_token"=>"b16d83ad4027fbccb433e7734e205386"}
+  [1m[36mDriverAuthenticationToken Load (0.5ms)[0m  [1mSELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = 'b16d83ad4027fbccb433e7734e205386' LIMIT 1[0m
+  [1m[35mDriver Load (0.1ms)[0m  SELECT  "drivers".* FROM "drivers"  WHERE "drivers"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "driver_authentication_tokens" WHERE "driver_authentication_tokens"."id" = ?  [["id", 2]]
+  [1m[36m (136.8ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 144ms (Views: 0.9ms | ActiveRecord: 137.7ms)
+
+
+Started POST "/api/drivers/register" for 192.168.1.7 at 2014-10-17 12:36:14 +0530
+Processing by Api::V1::Drivers::SessionsController#sing_up as JSON
+  Parameters: {"driver"=>{"first_name"=>"", "last_name"=>"", "email"=>"m12332@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"12345678956", "device_id"=>"", "device_type"=>""}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDriver Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "drivers"  WHERE "drivers"."email" = 'm12332@gmail.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "drivers" ("created_at", "device_id", "device_type", "email", "encrypted_password", "first_name", "last_name", "mobile_number", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-17 07:06:14.287641"], ["device_id", ""], ["device_type", ""], ["email", "m12332@gmail.com"], ["encrypted_password", "$2a$10$7DujhAkMRXiUPBpb2nTf9evj9tUfrbuhzdULAPoc6Ii./1dUIaY0e"], ["first_name", ""], ["last_name", ""], ["mobile_number", 12345678956], ["updated_at", "2014-10-17 07:06:14.287641"]]
+  [1m[36m (260.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDriverAuthenticationToken Load (0.3ms)[0m  [1mSELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = 'ffc43faaa33dde40ff9316f8908b04e3' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "driver_authentication_tokens" ("auth_token", "created_at", "driver_id", "updated_at") VALUES (?, ?, ?, ?)  [["auth_token", "ffc43faaa33dde40ff9316f8908b04e3"], ["created_at", "2014-10-17 07:06:14.566798"], ["driver_id", 2], ["updated_at", "2014-10-17 07:06:14.566798"]]
+  [1m[36m (136.1ms)[0m  [1mcommit transaction[0m
+  Rendered api/v1/drivers/sessions/sing_up.json.jbuilder (26.5ms)
+Completed 500 Internal Server Error in 602ms
+
+ActionView::Template::Error (undefined method `auth_token' for nil:NilClass):
+    1: json.(@driver,:email, :id, :first_name, :last_name, :mobile_number )
+    2: json.(@token, :auth_token)
+  app/views/api/v1/drivers/sessions/sing_up.json.jbuilder:2:in `_app_views_api_v__drivers_sessions_sing_up_json_jbuilder__235877354_100421150'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.3ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.4ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/template_error.text.erb (35.0ms)
+
+
+Started POST "/api/drivers/register" for 192.168.1.7 at 2014-10-17 12:36:43 +0530
+Processing by Api::V1::Drivers::SessionsController#sing_up as JSON
+  Parameters: {"driver"=>{"first_name"=>"", "last_name"=>"", "email"=>"m12332@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"12345678956", "device_id"=>"", "device_type"=>""}}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mDriver Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "drivers"  WHERE "drivers"."email" = 'm12332@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 123ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/drivers/register" for 192.168.1.7 at 2014-10-17 12:36:50 +0530
+Processing by Api::V1::Drivers::SessionsController#sing_up as JSON
+  Parameters: {"driver"=>{"first_name"=>"", "last_name"=>"", "email"=>"m123312@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"12345678956", "device_id"=>"", "device_type"=>""}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDriver Exists (0.2ms)[0m  SELECT  1 AS one FROM "drivers"  WHERE "drivers"."email" = 'm123312@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "drivers" ("created_at", "device_id", "device_type", "email", "encrypted_password", "first_name", "last_name", "mobile_number", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-17 07:06:50.151336"], ["device_id", ""], ["device_type", ""], ["email", "m123312@gmail.com"], ["encrypted_password", "$2a$10$KhwnSrz..54V339vOV0cAu/SrLr3C1VWpqYt4hibKLk5Qa/NBjevW"], ["first_name", ""], ["last_name", ""], ["mobile_number", 12345678956], ["updated_at", "2014-10-17 07:06:50.151336"]]
+  [1m[35m (152.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDriverAuthenticationToken Load (0.3ms)[0m  SELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '1a9c1b419dc0b2205192c0363726ba7f' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "driver_authentication_tokens" ("auth_token", "created_at", "driver_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["auth_token", "1a9c1b419dc0b2205192c0363726ba7f"], ["created_at", "2014-10-17 07:06:50.308304"], ["driver_id", 3], ["updated_at", "2014-10-17 07:06:50.308304"]]
+  [1m[35m (149.2ms)[0m  commit transaction
+  Rendered api/v1/drivers/sessions/sing_up.json.jbuilder (1.1ms)
+Completed 200 OK in 435ms (Views: 10.0ms | ActiveRecord: 303.1ms)
+
+
+Started POST "/api/drivers/login" for 192.168.1.7 at 2014-10-17 12:37:07 +0530
+Processing by Api::V1::Drivers::SessionsController#sing_in as JSON
+  Parameters: {"email"=>"m123312@gmail.com", "password"=>"[FILTERED]", "device_id"=>"", "device_type"=>""}
+  [1m[36mDriver Load (0.4ms)[0m  [1mSELECT  "drivers".* FROM "drivers"  WHERE "drivers"."email" = 'm123312@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDriverAuthenticationToken Load (0.2ms)[0m  [1mSELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '2bb37e56cc7e3ac9a404f41bbb1038bf' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "driver_authentication_tokens" ("auth_token", "created_at", "driver_id", "updated_at") VALUES (?, ?, ?, ?)  [["auth_token", "2bb37e56cc7e3ac9a404f41bbb1038bf"], ["created_at", "2014-10-17 07:07:07.548925"], ["driver_id", 3], ["updated_at", "2014-10-17 07:07:07.548925"]]
+  [1m[36m (136.0ms)[0m  [1mcommit transaction[0m
+  Rendered api/v1/drivers/sessions/sing_up.json.jbuilder (0.3ms)
+Completed 200 OK in 266ms (Views: 8.7ms | ActiveRecord: 137.1ms)
+
+
+Started POST "/api/drivers/change_password" for 192.168.1.7 at 2014-10-17 12:37:19 +0530
+Processing by Api::V1::Drivers::SessionsController#change_password as JSON
+  Parameters: {"auth_token"=>"2bb37e56cc7e3ac9a404f41bbb1038bf", "driver"=>{"current_password"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35mDriverAuthenticationToken Load (0.4ms)[0m  SELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '2bb37e56cc7e3ac9a404f41bbb1038bf' LIMIT 1
+  [1m[36mDriver Load (0.3ms)[0m  [1mSELECT  "drivers".* FROM "drivers"  WHERE "drivers"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "drivers" SET "encrypted_password" = ?, "updated_at" = ? WHERE "drivers"."id" = 3[0m  [["encrypted_password", "$2a$10$2mZo3OEQeB20azvNncNETuox.XF6Wx3Yd2K6Ux.xKTjW7lsZ9Yzzm"], ["updated_at", "2014-10-17 07:07:20.063609"]]
+  [1m[35m (139.4ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 369ms (Views: 1.0ms | ActiveRecord: 140.6ms)
+
+
+Started POST "/api/drivers/forgot_password" for 192.168.1.7 at 2014-10-17 12:37:26 +0530
+Processing by Api::V1::Drivers::SessionsController#forgot_password as JSON
+  Parameters: {"email"=>"m123312@gmail.com"}
+  [1m[36mDriver Load (0.4ms)[0m  [1mSELECT  "drivers".* FROM "drivers"  WHERE "drivers"."email" = 'm123312@gmail.com' LIMIT 1[0m
+  [1m[35mDriver Load (0.3ms)[0m  SELECT  "drivers".* FROM "drivers"  WHERE "drivers"."reset_password_token" = '2fae6b18fff7460e21c0a9cfe94159efe348898a9be27025815545477bc4c995'  ORDER BY "drivers"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `reset_password_token`
+  [1m[35mSQL (0.5ms)[0m  UPDATE "drivers" SET "reset_password_sent_at" = ?, "reset_password_token" = ?, "updated_at" = ? WHERE "drivers"."id" = 3  [["reset_password_sent_at", "2014-10-17 07:07:26.952857"], ["reset_password_token", "2fae6b18fff7460e21c0a9cfe94159efe348898a9be27025815545477bc4c995"], ["updated_at", "2014-10-17 07:07:26.954096"]]
+  [1m[36m (150.7ms)[0m  [1mcommit transaction[0m
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/devise-3.4.0/app/views/devise/mailer/reset_password_instructions.html.erb (0.5ms)
+
+Devise::Mailer#reset_password_instructions: processed outbound mail in 24.6ms
+
+Sent mail to m123312@gmail.com (11.7ms)
+Date: Fri, 17 Oct 2014 12:37:27 +0530
+From: Reset_password@example.com
+Reply-To: Reset_password@example.com
+To: m123312@gmail.com
+Message-ID: <5440c02f28281_189f5753c62104cb@pm-Lenovo-B560.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello m123312@gmail.com!</p>
+
+<p>Someone has requested a link to change your password. You can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/drivers/password/edit?reset_password_token=FDFZapZpzG8omZJ5sXuS">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+
+  Rendered text template (0.0ms)
+Completed 200 OK in 227ms (Views: 0.7ms | ActiveRecord: 151.9ms)
+
+
+Started POST "/api/drivers/update_profile" for 192.168.1.7 at 2014-10-17 12:37:39 +0530
+Processing by Api::V1::Drivers::DriversController#update_profile as JSON
+  Parameters: {"auth_token"=>"2bb37e56cc7e3ac9a404f41bbb1038bf", "driver"=>{"first_name"=>"kj", "last_name"=>"", "mobile_number"=>"12345678956"}}
+  [1m[35mDriverAuthenticationToken Load (0.3ms)[0m  SELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '2bb37e56cc7e3ac9a404f41bbb1038bf' LIMIT 1
+  [1m[36mDriver Load (0.2ms)[0m  [1mSELECT  "drivers".* FROM "drivers"  WHERE "drivers"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (3.0ms)[0m  [1mUPDATE "drivers" SET "first_name" = ?, "updated_at" = ? WHERE "drivers"."id" = 3[0m  [["first_name", "kj"], ["updated_at", "2014-10-17 07:07:39.154869"]]
+  [1m[35m (196.8ms)[0m  commit transaction
+  Rendered api/v1/drivers/drivers/update_profile.json.jbuilder (0.3ms)
+Completed 200 OK in 221ms (Views: 8.0ms | ActiveRecord: 200.4ms)
+
+
+Started GET "/api/drivers/logout?auth_token=2bb37e56cc7e3ac9a404f41bbb1038bf" for 192.168.1.7 at 2014-10-17 12:37:46 +0530
+Processing by Api::V1::Drivers::SessionsController#sing_out as JSON
+  Parameters: {"auth_token"=>"2bb37e56cc7e3ac9a404f41bbb1038bf"}
+  [1m[36mDriverAuthenticationToken Load (0.3ms)[0m  [1mSELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '2bb37e56cc7e3ac9a404f41bbb1038bf' LIMIT 1[0m
+  [1m[35mDriver Load (0.1ms)[0m  SELECT  "drivers".* FROM "drivers"  WHERE "drivers"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "driver_authentication_tokens" WHERE "driver_authentication_tokens"."id" = ?  [["id", 5]]
+  [1m[36m (160.6ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 168ms (Views: 0.9ms | ActiveRecord: 161.4ms)
+
+
+Started POST "/api/drivers/driver_list" for 192.168.1.7 at 2014-10-17 12:37:52 +0530
+Processing by Api::V1::Drivers::DriversController#driver_list as JSON
+  Parameters: {"auth_token"=>"2bb37e56cc7e3ac9a404f41bbb1038bf"}
+  [1m[35mDriverAuthenticationToken Load (0.3ms)[0m  SELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '2bb37e56cc7e3ac9a404f41bbb1038bf' LIMIT 1
+  Rendered text template (0.0ms)
+Filter chain halted as :define_current_driver rendered or redirected
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/drivers/driver_list" for 192.168.1.7 at 2014-10-17 12:38:39 +0530
+Processing by Api::V1::Drivers::DriversController#driver_list as JSON
+  Parameters: {"auth_token"=>"2bb37e56cc7e3ac9a404f41bbb1038bf"}
+  [1m[36mDriverAuthenticationToken Load (0.3ms)[0m  [1mSELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '2bb37e56cc7e3ac9a404f41bbb1038bf' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Filter chain halted as :define_current_driver rendered or redirected
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/drivers/login" for 192.168.1.7 at 2014-10-17 12:39:55 +0530
+Processing by Api::V1::Drivers::SessionsController#sing_in as JSON
+  Parameters: {"email"=>"m123312@gmail.com", "password"=>"[FILTERED]", "device_id"=>"", "device_type"=>""}
+  [1m[35mDriver Load (0.3ms)[0m  SELECT  "drivers".* FROM "drivers"  WHERE "drivers"."email" = 'm123312@gmail.com' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 131ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/drivers/login" for 192.168.1.7 at 2014-10-17 12:40:10 +0530
+Processing by Api::V1::Drivers::SessionsController#sing_in as JSON
+  Parameters: {"email"=>"m123312@gmail.com", "password"=>"[FILTERED]", "device_id"=>"", "device_type"=>""}
+  [1m[36mDriver Load (0.5ms)[0m  [1mSELECT  "drivers".* FROM "drivers"  WHERE "drivers"."email" = 'm123312@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDriverAuthenticationToken Load (0.3ms)[0m  [1mSELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '8199e72c3a410e201b9f620c0d1f97a3' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "driver_authentication_tokens" ("auth_token", "created_at", "driver_id", "updated_at") VALUES (?, ?, ?, ?)  [["auth_token", "8199e72c3a410e201b9f620c0d1f97a3"], ["created_at", "2014-10-17 07:10:10.312497"], ["driver_id", 3], ["updated_at", "2014-10-17 07:10:10.312497"]]
+  [1m[36m (152.2ms)[0m  [1mcommit transaction[0m
+  Rendered api/v1/drivers/sessions/sing_up.json.jbuilder (0.4ms)
+Completed 200 OK in 278ms (Views: 6.8ms | ActiveRecord: 153.2ms)
+
+
+Started POST "/api/drivers/driver_list" for 192.168.1.7 at 2014-10-17 12:40:19 +0530
+Processing by Api::V1::Drivers::DriversController#driver_list as JSON
+  Parameters: {"auth_token"=>"8199e72c3a410e201b9f620c0d1f97a3"}
+  [1m[35mDriverAuthenticationToken Load (0.3ms)[0m  SELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '8199e72c3a410e201b9f620c0d1f97a3' LIMIT 1
+  [1m[36mDriver Load (0.1ms)[0m  [1mSELECT  "drivers".* FROM "drivers"  WHERE "drivers"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mDriver Load (0.3ms)[0m  SELECT "drivers".* FROM "drivers"
+  Rendered api/v1/drivers/drivers/index.json.jbuilder (1.4ms)
+Completed 200 OK in 11ms (Views: 7.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/register" for 192.168.1.7 at 2014-10-17 12:40:47 +0530
+Processing by Api::V1::SessionsController#sing_up as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"m5@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"123123123123", "device_id"=>"", "device_type"=>""}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'm5@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("created_at", "device_id", "device_type", "email", "encrypted_password", "first_name", "last_name", "mobile_number", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-17 07:10:47.539233"], ["device_id", ""], ["device_type", ""], ["email", "m5@gmail.com"], ["encrypted_password", "$2a$10$0Fu5TSUcHapSsm82qP1S3eoJ4SIVdZHE23ajr1bT8fHpWJtf8/Yaq"], ["first_name", ""], ["last_name", ""], ["mobile_number", 123123123123], ["updated_at", "2014-10-17 07:10:47.539233"]]
+  [1m[35m (132.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAuthenticationToken Load (0.2ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'a8d432fa62cb23e3aec9738948ba7029' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "authentication_tokens" ("auth_token", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["auth_token", "a8d432fa62cb23e3aec9738948ba7029"], ["created_at", "2014-10-17 07:10:47.689217"], ["updated_at", "2014-10-17 07:10:47.689217"], ["user_id", 5]]
+  [1m[35m (158.8ms)[0m  commit transaction
+  Rendered api/v1/sessions/sing_up.json.jbuilder (1.4ms)
+Completed 200 OK in 502ms (Views: 52.2ms | ActiveRecord: 293.7ms)
+
+
+Started POST "/api/login" for 192.168.1.7 at 2014-10-17 12:41:02 +0530
+Processing by Api::V1::SessionsController#sing_in as JSON
+  Parameters: {"email"=>"m5@gmail.com", "password"=>"[FILTERED]", "device_id"=>"", "device_type"=>""}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'm5@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAuthenticationToken Load (0.2ms)[0m  [1mSELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'eb4d51b0061a3dd65ac9579224fbe2b4' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "authentication_tokens" ("auth_token", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["auth_token", "eb4d51b0061a3dd65ac9579224fbe2b4"], ["created_at", "2014-10-17 07:11:02.507211"], ["updated_at", "2014-10-17 07:11:02.507211"], ["user_id", 5]]
+  [1m[36m (135.4ms)[0m  [1mcommit transaction[0m
+  Rendered api/v1/sessions/sing_up.json.jbuilder (0.5ms)
+Completed 200 OK in 259ms (Views: 5.5ms | ActiveRecord: 136.3ms)
+
+
+Started POST "/api/change_password" for 192.168.1.7 at 2014-10-17 12:41:08 +0530
+Processing by Api::V1::SessionsController#change_password as JSON
+  Parameters: {"auth_token"=>"a8d432fa62cb23e3aec9738948ba7029", "user"=>{"current_password"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35mAuthenticationToken Load (0.3ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'a8d432fa62cb23e3aec9738948ba7029' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "encrypted_password" = ?, "updated_at" = ? WHERE "users"."id" = 5[0m  [["encrypted_password", "$2a$10$tcEyBlkKRlKazir1TXvVdukP2tBYLoGRx/s950qJVtBLqREUXTIni"], ["updated_at", "2014-10-17 07:11:08.482929"]]
+  [1m[35m (117.2ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 346ms (Views: 0.6ms | ActiveRecord: 118.2ms)
+
+
+Started POST "/api/forgot_password" for 192.168.1.7 at 2014-10-17 12:41:18 +0530
+Processing by Api::V1::SessionsController#forgot_password as JSON
+  Parameters: {"email"=>"m5@gmail.com"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."email" = 'm5@gmail.com' LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."reset_password_token" = '74418b48c19f013fd8d26b30c5e8b2565d5b0a8d804b3ef2b9ea488fce6bac9f'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+Binary data inserted for `string` type on column `reset_password_token`
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "reset_password_sent_at" = ?, "reset_password_token" = ?, "updated_at" = ? WHERE "users"."id" = 5  [["reset_password_sent_at", "2014-10-17 07:11:18.879693"], ["reset_password_token", "74418b48c19f013fd8d26b30c5e8b2565d5b0a8d804b3ef2b9ea488fce6bac9f"], ["updated_at", "2014-10-17 07:11:18.880364"]]
+  [1m[36m (165.3ms)[0m  [1mcommit transaction[0m
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/devise-3.4.0/app/views/devise/mailer/reset_password_instructions.html.erb (0.7ms)
+
+Devise::Mailer#reset_password_instructions: processed outbound mail in 26.7ms
+
+Sent mail to m5@gmail.com (11.8ms)
+Date: Fri, 17 Oct 2014 12:41:19 +0530
+From: Reset_password@example.com
+Reply-To: Reset_password@example.com
+To: m5@gmail.com
+Message-ID: <5440c117135cf_189f5fd080e10575@pm-Lenovo-B560.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello m5@gmail.com!</p>
+
+<p>Someone has requested a link to change your password. You can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/users/password/edit?reset_password_token=XqSuMbdgtnR5Uc5AHgn2">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+
+  Rendered text template (0.0ms)
+Completed 200 OK in 215ms (Views: 0.7ms | ActiveRecord: 166.5ms)
+
+
+Started POST "/api/update_profile" for 192.168.1.7 at 2014-10-17 12:41:29 +0530
+Processing by Api::V1::UsersController#update_profile as JSON
+  Parameters: {"auth_token"=>"a8d432fa62cb23e3aec9738948ba7029", "user"=>{"first_name"=>"jc", "last_name"=>"jc", "mobile_number"=>"123123123123"}}
+  [1m[35mAuthenticationToken Load (1.9ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'a8d432fa62cb23e3aec9738948ba7029' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "first_name" = ?, "last_name" = ?, "updated_at" = ? WHERE "users"."id" = 5[0m  [["first_name", "jc"], ["last_name", "jc"], ["updated_at", "2014-10-17 07:11:29.328750"]]
+  [1m[35m (122.4ms)[0m  commit transaction
+  Rendered api/v1/users/update_profile.json.jbuilder (1.1ms)
+Completed 200 OK in 159ms (Views: 25.2ms | ActiveRecord: 125.1ms)
+
+
+Started POST "/api/create_car" for 192.168.1.7 at 2014-10-17 12:41:39 +0530
+Processing by Api::V1::CarsController#create_car as JSON
+  Parameters: {"auth_token"=>"a8d432fa62cb23e3aec9738948ba7029", "car"=>{"name"=>"c", "total_passenger"=>"", "total_luggage"=>""}, "image"=>""}
+  [1m[36mAuthenticationToken Load (0.4ms)[0m  [1mSELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'a8d432fa62cb23e3aec9738948ba7029' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mCar Exists (0.2ms)[0m  SELECT  1 AS one FROM "cars"  WHERE "cars"."name" = 'c' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "cars" ("created_at", "name", "total_luggage", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", "2014-10-17 07:11:39.988837"], ["name", "c"], ["total_luggage", ""], ["updated_at", "2014-10-17 07:11:39.988837"]]
+  [1m[35m (144.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mCar Exists (0.3ms)[0m  SELECT  1 AS one FROM "cars"  WHERE ("cars"."name" = 'c' AND "cars"."id" != 1) LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  Rendered api/v1/cars/show.json.jbuilder (1.6ms)
+Completed 200 OK in 260ms (Views: 30.3ms | ActiveRecord: 147.0ms)
+
+
+Started POST "/api/car_list" for 192.168.1.7 at 2014-10-17 12:41:45 +0530
+Processing by Api::V1::CarsController#car_list as JSON
+  Parameters: {"auth_token"=>"a8d432fa62cb23e3aec9738948ba7029"}
+  [1m[35mAuthenticationToken Load (0.8ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'a8d432fa62cb23e3aec9738948ba7029' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 5]]
+  [1m[35mCar Load (0.3ms)[0m  SELECT "cars".* FROM "cars"
+  Rendered api/v1/cars/index.json.jbuilder (1.7ms)
+Completed 200 OK in 18ms (Views: 10.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/logout?auth_token=a8d432fa62cb23e3aec9738948ba7029" for 192.168.1.7 at 2014-10-17 12:41:51 +0530
+Processing by Api::V1::SessionsController#sing_out as JSON
+  Parameters: {"auth_token"=>"a8d432fa62cb23e3aec9738948ba7029"}
+  [1m[36mAuthenticationToken Load (0.3ms)[0m  [1mSELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'a8d432fa62cb23e3aec9738948ba7029' LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 5]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  DELETE FROM "authentication_tokens" WHERE "authentication_tokens"."id" = ?  [["id", 5]]
+  [1m[36m (149.4ms)[0m  [1mcommit transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 156ms (Views: 0.6ms | ActiveRecord: 150.2ms)
