@@ -23284,3 +23284,30 @@ Processing by Api::V1::UsersController#update_profile as JSON
   [1m[35m (127.3ms)[0m  commit transaction
   Rendered api/v1/users/update_profile.json.jbuilder (0.8ms)
 Completed 200 OK in 164ms (Views: 18.1ms | ActiveRecord: 128.4ms)
+
+
+Started POST "/api/drivers/register" for 192.168.1.7 at 2014-10-17 13:30:18 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::Drivers::SessionsController#sing_up as JSON
+  Parameters: {"driver"=>{"first_name"=>"", "last_name"=>"", "email"=>"pm@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"", "device_id"=>"", "device_type"=>""}}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mDriver Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "drivers"  WHERE "drivers"."email" = 'pm@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 195ms (Views: 7.6ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/api/drivers/register" for 192.168.1.7 at 2014-10-17 13:30:30 +0530
+Processing by Api::V1::Drivers::SessionsController#sing_up as JSON
+  Parameters: {"driver"=>{"first_name"=>"", "last_name"=>"", "email"=>"pm@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"1234567895", "device_id"=>"", "device_type"=>""}}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mDriver Exists (0.2ms)[0m  SELECT  1 AS one FROM "drivers"  WHERE "drivers"."email" = 'pm@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "drivers" ("created_at", "device_id", "device_type", "email", "encrypted_password", "first_name", "last_name", "mobile_number", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-17 08:00:30.142810"], ["device_id", ""], ["device_type", ""], ["email", "pm@gmail.com"], ["encrypted_password", "$2a$10$42/2WzWGKVopjLSX0jn45epBLmUgspZOu8ss9hZ9Y1V7VN0pn1/iC"], ["first_name", ""], ["last_name", ""], ["mobile_number", 1234567895], ["updated_at", "2014-10-17 08:00:30.142810"]]
+  [1m[35m (144.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDriverAuthenticationToken Load (0.2ms)[0m  SELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = 'd88a8a8c39b0b74a3771b21ad50b4f9a' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "driver_authentication_tokens" ("auth_token", "created_at", "driver_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["auth_token", "d88a8a8c39b0b74a3771b21ad50b4f9a"], ["created_at", "2014-10-17 08:00:30.330752"], ["driver_id", 1], ["updated_at", "2014-10-17 08:00:30.330752"]]
+  [1m[35m (154.6ms)[0m  commit transaction
+  Rendered api/v1/drivers/sessions/sing_up.json.jbuilder (3.4ms)
+Completed 200 OK in 491ms (Views: 26.6ms | ActiveRecord: 301.0ms)

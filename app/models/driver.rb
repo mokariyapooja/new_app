@@ -7,6 +7,10 @@ class Driver < ActiveRecord::Base
   ##relationship
   has_many :driver_authentication_tokens, :dependent => :destroy
   
+  ##validations 
+  validates_format_of :mobile_number, 
+                      :with => /\A[0-9]{10,15}\Z/,:maximum =>15,:minimum =>10
+                      
   ##class
   class << self
     def authenticate_driver_with_auth_token(email,password)
