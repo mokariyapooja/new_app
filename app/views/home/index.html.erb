@@ -9,9 +9,9 @@
   <!-- User Sign Up Api -->
   <%= render partial: 'api', locals: {
         link_name: 'Sign Up', 
-        link_href: 'signup',
+        link_href: 'register',
         link_method: 'POST',
-        original_link:   api_signup_path,
+        original_link:   api_register_path,
         parameters: [
           {name: 'user[first_name]', description: 'First name'},
           {name: 'user[last_name]', description: 'Last name'},
@@ -121,9 +121,9 @@
    <!-- Driver Sign Up Api -->
   <%= render partial: 'api', locals: {
         link_name: 'Driver Sign Up', 
-        link_href: 'driver_signup',
+        link_href: 'driver_register',
         link_method: 'POST',
-        original_link:   api_drivers_signup_path,
+        original_link:  api_drivers_driver_register_path,
         parameters: [
           {name: 'driver[first_name]', description: 'First name'},
           {name: 'driver[last_name]', description: 'Last name'},
@@ -141,7 +141,7 @@
         link_name: 'Driver Login', 
         link_href: 'driver_login',
         link_method: 'POST',
-        original_link:  api_drivers_login_path,
+        original_link:  api_drivers_driver_login_path,
         parameters: [
           {name: 'email', description: 'email of User', required: 1 },
           {name: 'password', description: 'Password', required: 1},
@@ -155,7 +155,7 @@
         link_name: 'Driver Change Password', 
         link_href: 'driver_change_password',
         link_method: 'POST',
-        original_link:  api_drivers_change_password_path,
+        original_link:  api_drivers_driver_change_password_path,
         parameters: [
           {name: 'auth_token', description: 'Authentication Token which you will get from login or register api', required: 1 },
           {name: 'driver[current_password]', description: 'Current Password', required: 1},
@@ -169,7 +169,7 @@
         link_name: 'Driver Forgot Password', 
         link_href: 'driver_forgot_password',
         link_method: 'POST',
-        original_link:  api_drivers_forgot_password_path,
+        original_link:  api_drivers_driver_forgot_password_path,
         parameters: [
           {name: 'email', description: 'email of User', required: 1 }
         ],
@@ -180,7 +180,7 @@
           link_name: 'Driver Update Profile', 
           link_href: 'driver_update_profile',
           link_method: 'POST',
-          original_link:   api_drivers_update_profile_path,
+          original_link:   api_drivers_driver_update_profile_path,
           parameters: [
             {name: 'auth_token', description: 'Authentication Token which you will get from login or register api', required: 1 },
             {name: 'driver[first_name]', description: 'First name'},
@@ -194,7 +194,7 @@
         link_name: 'Driver Logout', 
         link_href: 'driver_logout',
         link_method: 'GET',
-        original_link:  api_drivers_logout_path,
+        original_link:  api_drivers_driver_logout_path,
         parameters: [
           {name: 'auth_token', description: 'Authentication Token which you will get from login or register api', required: 1 }
         ],

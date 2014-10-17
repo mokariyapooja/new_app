@@ -1,9 +1,9 @@
 class Api::V1::SessionsController < Api::V1::BaseController
   ##Filter
   before_action :define_current_user, only: [:sing_out, :change_password]
-
-  ##sing_up
-  def sing_up 
+ 
+  ##sing_up 
+  def register 
     @user = User.new(users_params)
     if @user.save
       @token = @user.authentication_tokens.build
@@ -14,14 +14,14 @@ class Api::V1::SessionsController < Api::V1::BaseController
   end
 
   ##sing_in
-  def sing_in
+  def login
     @valid_email = params[:email].present?
     @valid_password = params[:password].present?
     @user = User.authenticate_user_with_auth_token(params[:email],params[:password])
     if @user.present?
       @token = @user.authentication_tokens.build
       @token.save
-      render :file => 'api/v1/sessions/sing_up'   
+      render :file => 'api/v1/sessions/register'   
     elsif !@valid_password && !@valid_email
       render_json({:errors => "Email and password is required",:status => 404}.to_json)  
     else
@@ -30,12 +30,12 @@ class Api::V1::SessionsController < Api::V1::BaseController
   end
 
   ##sing_out
-  def sing_out
+  def logout
     if @token.present?
       @token.destroy  
       render_json({:message => "Logout Successfully.!"}.to_json)
     else
-      render_json({:errors => "No user found with authentication_token = #{params[:authentication_token]}"}.to_json)
+      render_json({:errors => "No user found with authentication_token = #{params[:auth_token]}"}.to_json)
     end
   end
 

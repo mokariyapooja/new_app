@@ -1,28 +1,28 @@
 Rails.application.routes.draw do
-  #devise_for :drivers
-  devise_for :drivers,:controllers => { :registrations => "driver/registrations", :passwords => "driver/passwords",:confirmations => "driver/confirmations",:sessions=> "driver/sessions"}, :skip => [:registrations]
+  devise_for :drivers
+  #devise_for :drivers,:controllers => { :registrations => "driver/registrations", :passwords => "driver/passwords",:confirmations => "driver/confirmations",:sessions=> "driver/sessions"}, :skip => [:registrations]
   devise_for :users 
   root  to: 'home#index'
   namespace :api , :defaults => { :format => 'json' } do
     scope :module => :v1 do
-      post 'register', to: 'sessions#sing_up',  :as => :signup
-      post 'login', to: 'sessions#sing_in', :as => :login
-      get 'logout', to: 'sessions#sing_out' , :as => :logout
-      post 'forgot_password', to: 'sessions#forgot_password', :as => :forgot_password
-      post 'change_password', to: 'sessions#change_password', :as => :change_password
-      post 'update_profile', to: 'users#update_profile', :as => :update_profile
-      post 'create_car', to: 'cars#create_car', :as => :create_car   
-      post 'car_list', to: 'cars#car_list', :as => :car_list
+      post 'register'          => 'sessions#register',         :as => :register
+      post 'login'             => 'sessions#login',            :as => :login
+      get  'logout'            => 'sessions#logout' ,          :as => :logout
+      post 'forgot_password'   => 'sessions#forgot_password',  :as => :forgot_password
+      post 'change_password'   => 'sessions#change_password',  :as => :change_password
+      post 'update_profile'    => 'users#update_profile',      :as => :update_profile
+      post 'create_car'        => 'cars#create_car',           :as => :create_car   
+      post 'car_list'          => 'cars#car_list',             :as => :car_list
       
-      namespace :drivers do
-        post 'register', to: 'sessions#sing_up',  :as => :signup
-        post 'login', to: 'sessions#sing_in', :as => :login
-        get 'logout', to: 'sessions#sing_out' , :as => :logout
-        post 'forgot_password', to: 'sessions#forgot_password', :as => :forgot_password
-        post 'change_password', to: 'sessions#change_password', :as => :change_password
-        post 'update_profile', to: 'drivers#update_profile', :as => :update_profile
-        post 'driver_list', to: 'drivers#driver_list', :as => :driver_list
-      end
+    namespace :drivers do
+      post 'driver_register'          => 'sessions#driver_register',         :as => :driver_register
+      post 'driver_login'             => 'sessions#driver_login',            :as => :driver_login
+      get  'driver_logout'            => 'sessions#driver_logout' ,          :as => :driver_logout
+      post 'driver_forgot_password'   => 'sessions#driver_forgot_password',  :as => :driver_forgot_password
+      post 'driver_change_password'   => 'sessions#driver_change_password',  :as => :driver_change_password
+      post 'driver_update_profile'    =>  'drivers#driver_update_profile',   :as => :driver_update_profile
+      post 'driver_list'              => 'drivers#driver_list',              :as => :driver_list
+    end
    end
   end
 
