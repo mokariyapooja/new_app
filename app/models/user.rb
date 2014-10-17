@@ -25,7 +25,6 @@ class User < ActiveRecord::Base
     end
   end
    
-  ##for error masseges
   def display_errors
     self.errors.full_messages.join(', ')
   end

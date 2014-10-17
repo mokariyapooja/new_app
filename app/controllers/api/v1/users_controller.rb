@@ -6,7 +6,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     if @user.update_attributes(update_params)
       render_json({:message => "your profile is updated" , :status => 200}).to_json   
     else
-      render_json({:errors => @user.display_errors, :status => 404}).to_json
+      render_json({:errors => @user.display_errors, :status => 404}.to_json)
     end
   end
 
