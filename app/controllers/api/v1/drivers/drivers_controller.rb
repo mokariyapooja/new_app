@@ -1,7 +1,7 @@
 class Api::V1::Drivers::DriversController < Api::V1::Drivers::BaseController 
   ##Filter
   before_action :define_current_driver
-
+  
   ##list of drivers
   def driver_list
     @drivers = Driver.all

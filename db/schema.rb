@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20141016073257) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
-    t.integer  "total_passenger",    limit: 8
+    t.integer  "total_passenger",    limit: 8, default: 0, null: false
     t.string   "total_luggage"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20141016073257) do
     t.datetime "updated_at"
     t.string   "first_name"
     t.string   "last_name"
-    t.integer  "mobile_number",          limit: 8
+    t.integer  "mobile_number",          limit: 8, default: 0,  null: false
     t.string   "device_id"
     t.string   "device_type"
   end
