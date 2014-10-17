@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     scope :module => :v1 do
       post 'register'          => 'sessions#register',         :as => :register
       post 'login'             => 'sessions#login',            :as => :login
-      get  'logout'            => 'sessions#logout' ,          :as => :logout
+      get  'logout'            => 'sessions#logout',           :as => :logout
       post 'forgot_password'   => 'sessions#forgot_password',  :as => :forgot_password
       post 'change_password'   => 'sessions#change_password',  :as => :change_password
       post 'update_profile'    => 'users#update_profile',      :as => :update_profile

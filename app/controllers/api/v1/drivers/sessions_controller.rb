@@ -1,6 +1,6 @@
 class Api::V1::Drivers::SessionsController < Api::V1::Drivers::BaseController 
   ##Filter
-  before_action :define_current_driver, only: [:sing_out,:change_password]
+  before_action :define_current_driver, only: [:driver_logout,:driver_change_password]
 
   ##sing_up
   def driver_register

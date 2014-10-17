@@ -26894,3 +26894,810 @@ Processing by Api::V1::SessionsController#logout as JSON
   [1m[35m (268.7ms)[0m  commit transaction
   Rendered text template (0.0ms)
 Completed 200 OK in 4554ms (Views: 72.9ms | ActiveRecord: 2687.5ms)
+  [1m[36m (145.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (126.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to DeviseCreateUsers (20141013091952)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (38.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141013091952"]]
+  [1m[36m (197.3ms)[0m  [1mcommit transaction[0m
+Migrating to AddFiledToUser (20141013095409)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.9ms)[0m  [1mALTER TABLE "users" ADD "first_name" varchar(255)[0m
+  [1m[35m (0.7ms)[0m  ALTER TABLE "users" ADD "last_name" varchar(255)
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "users" ADD "mobile_number" integer[0m
+  [1m[35m (0.6ms)[0m  ALTER TABLE "users" ADD "device_id" integer
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "users" ADD "device_type" varchar(255)[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141013095409"]]
+  [1m[36m (229.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateAuthenticationTokens (20141013104741)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "authentication_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141013104741"]]
+  [1m[36m (168.5ms)[0m  [1mcommit transaction[0m
+Migrating to AddFiledToAuthenticationToken (20141013104857)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "authentication_tokens" ADD "user_id" integer[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "authentication_tokens" ADD "auth_token" varchar(255)
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141013104857"]]
+  [1m[35m (171.4ms)[0m  commit transaction
+Migrating to ChangeFildTypeUser (20141013134426)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "first_name" varchar(255), "last_name" varchar(255), "mobile_number" integer, "device_id" integer, "device_type" varchar(255)) 
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "users"
+  [1m[36m (0.4ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "first_name" varchar(255), "last_name" varchar(255), "mobile_number" integer(8) NOT NULL, "device_id" integer, "device_type" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "ausers"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "ausers"[0m
+  [1m[35m (0.3ms)[0m  CREATE TEMPORARY TABLE "ausers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "first_name" varchar(255), "last_name" varchar(255), "mobile_number" integer(8) NOT NULL, "device_id" integer, "device_type" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_reset_password_token" ON "ausers" ("reset_password_token")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "tindex_ausers_on_email" ON "ausers" ("email")[0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "users"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "users"[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "first_name" varchar(255), "last_name" varchar(255), "mobile_number" integer(8) NOT NULL, "device_id" varchar(255), "device_type" varchar(255)) 
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_email' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_ausers_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "ausers"
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "ausers"[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141013134426"]]
+  [1m[36m (140.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateCars (20141014083653)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "cars" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141014083653"]]
+  [1m[36m (173.0ms)[0m  [1mcommit transaction[0m
+Migrating to AddFiledToCars (20141014085522)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "cars" ADD "name" varchar(255)[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "cars" ADD "total_passenger" integer(8) DEFAULT 0 NOT NULL
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "cars" ADD "total_luggage" varchar(255)[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141014085522"]]
+  [1m[36m (133.7ms)[0m  [1mcommit transaction[0m
+Migrating to AddAttachmentImageToCars (20141014112653)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mALTER TABLE "cars" ADD "image_file_name" varchar(255)[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "cars" ADD "image_content_type" varchar(255)
+  [1m[36m (0.4ms)[0m  [1mALTER TABLE "cars" ADD "image_file_size" integer[0m
+  [1m[35m (0.4ms)[0m  ALTER TABLE "cars" ADD "image_updated_at" datetime
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141014112653"]]
+  [1m[35m (136.4ms)[0m  commit transaction
+Migrating to DeviseCreateDrivers (20141015122744)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "drivers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_drivers_on_email" ON "drivers" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_drivers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_drivers_on_email' AND type='index'
+
+  [1m[36m (0.3ms)[0m  [1mCREATE UNIQUE INDEX "index_drivers_on_reset_password_token" ON "drivers" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141015122744"]]
+  [1m[36m (149.1ms)[0m  [1mcommit transaction[0m
+Migrating to CreateDriverAuthenticationTokens (20141015123001)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "driver_authentication_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "driver_id" integer, "driver_auth_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141015123001"]]
+  [1m[36m (149.2ms)[0m  [1mcommit transaction[0m
+Migrating to AddFiledToDriver (20141016062143)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "drivers" ADD "first_name" varchar(255)[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "drivers" ADD "last_name" varchar(255)
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "drivers" ADD "mobile_number" integer(8) DEFAULT 0 NOT NULL[0m
+  [1m[35m (0.3ms)[0m  ALTER TABLE "drivers" ADD "device_id" varchar(255)
+  [1m[36m (0.3ms)[0m  [1mALTER TABLE "drivers" ADD "device_type" varchar(255)[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20141016062143"]]
+  [1m[36m (170.0ms)[0m  [1mcommit transaction[0m
+Migrating to ChangeFildNameDriver (20141016073257)
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TEMPORARY TABLE "adriver_authentication_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "driver_id" integer, "auth_token" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.2ms)[0m  SELECT * FROM "driver_authentication_tokens"
+  [1m[36m (0.5ms)[0m  [1mDROP TABLE "driver_authentication_tokens"[0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "driver_authentication_tokens" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "driver_id" integer, "auth_token" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.2ms)[0m  [1mSELECT * FROM "adriver_authentication_tokens"[0m
+  [1m[35m (0.3ms)[0m  DROP TABLE "adriver_authentication_tokens"
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20141016073257"]]
+  [1m[35m (164.6ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_drivers_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_drivers_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.2ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_drivers_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_drivers_on_email' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[35mUser Load (23.6ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mUser Load (581.0ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mAuthenticationToken Load (0.3ms)[0m  SELECT "authentication_tokens".* FROM "authentication_tokens"
+  [1m[36mDriver Load (41.4ms)[0m  [1mSELECT "drivers".* FROM "drivers"[0m
+  [1m[35mCar Load (0.3ms)[0m  SELECT "cars".* FROM "cars"
+  [1m[36mDriverAuthenticationToken Load (378.5ms)[0m  [1mSELECT "driver_authentication_tokens".* FROM "driver_authentication_tokens"[0m
+
+
+Started GET "/" for 192.168.1.7 at 2014-10-17 17:08:01 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/_index.html.erb (3.1ms)
+  Rendered home/_api.html.erb (4.4ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.5ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.5ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/index.html.erb within layouts/application (271.0ms)
+Completed 200 OK in 2789ms (Views: 2090.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/table.css?body=1" for 192.168.1.7 at 2014-10-17 17:08:36 +0530
+
+
+Started GET "/assets/style.css?body=1" for 192.168.1.7 at 2014-10-17 17:08:40 +0530
+
+
+Started GET "/assets/application.css?body=1" for 192.168.1.7 at 2014-10-17 17:08:40 +0530
+
+
+Started GET "/assets/jquery-1.7.2.js?body=1" for 192.168.1.7 at 2014-10-17 17:08:41 +0530
+
+
+Started GET "/assets/v2.css?body=1" for 192.168.1.7 at 2014-10-17 17:08:41 +0530
+
+
+Started GET "/assets/prettyprint.js?body=1" for 192.168.1.7 at 2014-10-17 17:08:41 +0530
+
+
+Started GET "/assets/application.js?body=1" for 192.168.1.7 at 2014-10-17 17:08:41 +0530
+
+
+Started GET "/assets/bg.png" for 192.168.1.7 at 2014-10-17 17:09:27 +0530
+
+ActionController::RoutingError (No route matches [GET] "/assets/bg.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (205.8ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (299.5ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (21964.8ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (23733.5ms)
+
+
+Started POST "/api/register" for 192.168.1.8 at 2014-10-17 17:13:14 +0530
+Processing by Api::V1::SessionsController#register as JSON
+  Parameters: {"user"=>{"first_name"=>"test", "last_name"=>"test", "email"=>"test121@yopmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"1234567890", "device_id"=>"APA91bE306m6YuEyDyUHJilBu3o9kdF4iet7PDudT4C__IaiFSiQMhTPuAxfclCMy18NrXP5s_7Ym1d0el9e6lrfrIfH9H8rmq3YZK17yExp1KFpWfsGxtqkHh69e2TkGLnaUe_PZXzK", "device_type"=>"Android"}}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'test121@yopmail.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (135.0ms)[0m  INSERT INTO "users" ("created_at", "device_id", "device_type", "email", "encrypted_password", "first_name", "last_name", "mobile_number", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-17 11:43:21.963422"], ["device_id", "APA91bE306m6YuEyDyUHJilBu3o9kdF4iet7PDudT4C__IaiFSiQMhTPuAxfclCMy18NrXP5s_7Ym1d0el9e6lrfrIfH9H8rmq3YZK17yExp1KFpWfsGxtqkHh69e2TkGLnaUe_PZXzK"], ["device_type", "Android"], ["email", "test121@yopmail.com"], ["encrypted_password", "$2a$10$hGM/ku5m33.JuCPQcuEubukGsTqHDAIxA3Tywb7I3ok0iodw0JmPS"], ["first_name", "test"], ["last_name", "test"], ["mobile_number", 1234567890], ["updated_at", "2014-10-17 11:43:21.963422"]]
+  [1m[36m (574.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAuthenticationToken Load (0.4ms)[0m  [1mSELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = '7c59813ee5a7e5a2b86e6089384341ac' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "authentication_tokens" ("auth_token", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["auth_token", "7c59813ee5a7e5a2b86e6089384341ac"], ["created_at", "2014-10-17 11:43:24.476114"], ["updated_at", "2014-10-17 11:43:24.476114"], ["user_id", 1]]
+  [1m[36m (4236.9ms)[0m  [1mcommit transaction[0m
+  Rendered api/v1/sessions/register.json.jbuilder (42.4ms)
+Completed 200 OK in 11101ms (Views: 379.4ms | ActiveRecord: 5015.6ms)
+
+
+Started POST "/api/logout" for 192.168.1.8 at 2014-10-17 17:13:32 +0530
+
+ActionController::RoutingError (No route matches [POST] "/api/logout"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (372.4ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1008.8ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1080.1ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (4887.6ms)
+
+
+Started POST "/api/register" for 192.168.1.7 at 2014-10-17 17:17:42 +0530
+Processing by Api::V1::SessionsController#register as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"j@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"123456789456", "device_id"=>"", "device_type"=>""}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (267.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'j@gmail.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (29.8ms)[0m  INSERT INTO "users" ("created_at", "device_id", "device_type", "email", "encrypted_password", "first_name", "last_name", "mobile_number", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-17 11:47:49.153933"], ["device_id", ""], ["device_type", ""], ["email", "j@gmail.com"], ["encrypted_password", "$2a$10$DC1d2risS7gV8jks8JZrv.Ntf4yCpMe1uz19cGW4S1iXKfrehBGPi"], ["first_name", ""], ["last_name", ""], ["mobile_number", 123456789456], ["updated_at", "2014-10-17 11:47:49.153933"]]
+  [1m[36m (169.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAuthenticationToken Load (0.2ms)[0m  [1mSELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = '906936e33eb78aa655db8b8be17efce0' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "authentication_tokens" ("auth_token", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["auth_token", "906936e33eb78aa655db8b8be17efce0"], ["created_at", "2014-10-17 11:47:49.487781"], ["updated_at", "2014-10-17 11:47:49.487781"], ["user_id", 2]]
+  [1m[36m (212.7ms)[0m  [1mcommit transaction[0m
+  Rendered api/v1/sessions/register.json.jbuilder (0.4ms)
+Completed 200 OK in 1419ms (Views: 166.4ms | ActiveRecord: 713.6ms)
+
+
+Started GET "/api/logout?auth_token=906936e33eb78aa655db8b8be17efce0" for 192.168.1.7 at 2014-10-17 17:18:04 +0530
+Processing by Api::V1::SessionsController#logout as JSON
+  Parameters: {"auth_token"=>"906936e33eb78aa655db8b8be17efce0"}
+  [1m[35mAuthenticationToken Load (0.3ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = '906936e33eb78aa655db8b8be17efce0' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 2]]
+  [1m[35m (1.5ms)[0m  begin transaction
+  [1m[36mSQL (0.5ms)[0m  [1mDELETE FROM "authentication_tokens" WHERE "authentication_tokens"."id" = ?[0m  [["id", 2]]
+  [1m[35m (203.2ms)[0m  commit transaction
+  Rendered text template (0.1ms)
+Completed 200 OK in 331ms (Views: 39.8ms | ActiveRecord: 205.7ms)
+
+
+Started POST "/api/register" for 192.168.1.7 at 2014-10-17 17:21:58 +0530
+Processing by Api::V1::SessionsController#register as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"j123@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"123456789456", "device_id"=>"", "device_type"=>""}}
+  [1m[36m (958.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (180.6ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'j123@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (99.6ms)[0m  [1mINSERT INTO "users" ("created_at", "device_id", "device_type", "email", "encrypted_password", "first_name", "last_name", "mobile_number", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-17 11:52:27.351731"], ["device_id", ""], ["device_type", ""], ["email", "j123@gmail.com"], ["encrypted_password", "$2a$10$ZYfX4BMYotlsGy8ZgpOWTuAiwj7sVJu0HVKK.UZsP.DQaJH551a16"], ["first_name", ""], ["last_name", ""], ["mobile_number", 123456789456], ["updated_at", "2014-10-17 11:52:27.351731"]]
+  [1m[35m (276.0ms)[0m  commit transaction
+  [1m[36m (41.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mAuthenticationToken Load (0.4ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'f80d5c5ba614a5e92c6c6a65868a1fa4' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "authentication_tokens" ("auth_token", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["auth_token", "f80d5c5ba614a5e92c6c6a65868a1fa4"], ["created_at", "2014-10-17 11:52:30.974323"], ["updated_at", "2014-10-17 11:52:30.974323"], ["user_id", 3]]
+  [1m[35m (396.9ms)[0m  commit transaction
+  Rendered api/v1/sessions/register.json.jbuilder (1066.6ms)
+Completed 200 OK in 23538ms (Views: 2961.0ms | ActiveRecord: 1953.1ms)
+
+
+Started GET "/api/logout?auth_token=f80d5c5ba614a5e92c6c6a65868a1fa4" for 192.168.1.5 at 2014-10-17 17:26:13 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::SessionsController#logout as JSON
+  Parameters: {"auth_token"=>"f80d5c5ba614a5e92c6c6a65868a1fa4", "session"=>{}}
+  [1m[35mAuthenticationToken Load (0.2ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'f80d5c5ba614a5e92c6c6a65868a1fa4' LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mSQL (12.4ms)[0m  [1mDELETE FROM "authentication_tokens" WHERE "authentication_tokens"."id" = ?[0m  [["id", 3]]
+  [1m[35m (322.8ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 794ms (Views: 191.5ms | ActiveRecord: 337.1ms)
+
+
+Started GET "/api/logout?auth_token=f80d5c5ba614a5e92c6c6a65868a1fa4" for 192.168.1.5 at 2014-10-17 17:33:34 +0530
+Processing by Api::V1::SessionsController#logout as JSON
+  Parameters: {"auth_token"=>"f80d5c5ba614a5e92c6c6a65868a1fa4"}
+  [1m[36mAuthenticationToken Load (152.0ms)[0m  [1mSELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'f80d5c5ba614a5e92c6c6a65868a1fa4' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Filter chain halted as :define_current_user rendered or redirected
+Completed 200 OK in 212ms (Views: 0.8ms | ActiveRecord: 152.0ms)
+
+
+Started GET "/api/logout?auth_token=f80d5c5ba614a5e92c6c6a65868a1fa4" for 192.168.1.5 at 2014-10-17 17:33:38 +0530
+Processing by Api::V1::SessionsController#logout as JSON
+  Parameters: {"auth_token"=>"f80d5c5ba614a5e92c6c6a65868a1fa4"}
+  [1m[35mAuthenticationToken Load (0.2ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'f80d5c5ba614a5e92c6c6a65868a1fa4' LIMIT 1
+  Rendered text template (0.0ms)
+Filter chain halted as :define_current_user rendered or redirected
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/logout?auth_token=f80d5c5ba614a5e92c6c6a65868a1fa4" for 192.168.1.5 at 2014-10-17 17:33:38 +0530
+Processing by Api::V1::SessionsController#logout as JSON
+  Parameters: {"auth_token"=>"f80d5c5ba614a5e92c6c6a65868a1fa4"}
+  [1m[36mAuthenticationToken Load (0.2ms)[0m  [1mSELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'f80d5c5ba614a5e92c6c6a65868a1fa4' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Filter chain halted as :define_current_user rendered or redirected
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/logout?auth_token=f80d5c5ba614a5e92c6c6a65868a1fa4" for 192.168.1.5 at 2014-10-17 17:33:38 +0530
+Processing by Api::V1::SessionsController#logout as JSON
+  Parameters: {"auth_token"=>"f80d5c5ba614a5e92c6c6a65868a1fa4"}
+  [1m[35mAuthenticationToken Load (0.2ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'f80d5c5ba614a5e92c6c6a65868a1fa4' LIMIT 1
+  Rendered text template (0.0ms)
+Filter chain halted as :define_current_user rendered or redirected
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/logout?auth_token=f80d5c5ba614a5e92c6c6a65868a1fa4" for 192.168.1.5 at 2014-10-17 17:33:38 +0530
+Processing by Api::V1::SessionsController#logout as JSON
+  Parameters: {"auth_token"=>"f80d5c5ba614a5e92c6c6a65868a1fa4"}
+  [1m[36mAuthenticationToken Load (0.3ms)[0m  [1mSELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'f80d5c5ba614a5e92c6c6a65868a1fa4' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Filter chain halted as :define_current_user rendered or redirected
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/logout?auth_token=f80d5c5ba614a5e92c6c6a65868a1fa4" for 192.168.1.5 at 2014-10-17 17:33:38 +0530
+Processing by Api::V1::SessionsController#logout as JSON
+  Parameters: {"auth_token"=>"f80d5c5ba614a5e92c6c6a65868a1fa4"}
+  [1m[35mAuthenticationToken Load (0.2ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'f80d5c5ba614a5e92c6c6a65868a1fa4' LIMIT 1
+  Rendered text template (0.0ms)
+Filter chain halted as :define_current_user rendered or redirected
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/logout?auth_token=f80d5c5ba614a5e92c6c6a65868a1fa4" for 192.168.1.5 at 2014-10-17 17:33:39 +0530
+Processing by Api::V1::SessionsController#logout as JSON
+  Parameters: {"auth_token"=>"f80d5c5ba614a5e92c6c6a65868a1fa4"}
+  [1m[36mAuthenticationToken Load (0.3ms)[0m  [1mSELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'f80d5c5ba614a5e92c6c6a65868a1fa4' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Filter chain halted as :define_current_user rendered or redirected
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/logout?auth_token=f80d5c5ba614a5e92c6c6a65868a1fa4" for 192.168.1.5 at 2014-10-17 17:33:40 +0530
+Processing by Api::V1::SessionsController#logout as JSON
+  Parameters: {"auth_token"=>"f80d5c5ba614a5e92c6c6a65868a1fa4", "session"=>{}}
+  [1m[35mAuthenticationToken Load (0.2ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'f80d5c5ba614a5e92c6c6a65868a1fa4' LIMIT 1
+  Rendered text template (0.0ms)
+Filter chain halted as :define_current_user rendered or redirected
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/api/logout?auth_token=f80d5c5ba614a5e92c6c6a65868a1fa4" for 192.168.1.5 at 2014-10-17 17:33:50 +0530
+Processing by Api::V1::SessionsController#logout as JSON
+  Parameters: {"auth_token"=>"f80d5c5ba614a5e92c6c6a65868a1fa4", "session"=>{}}
+  [1m[36mAuthenticationToken Load (0.4ms)[0m  [1mSELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'f80d5c5ba614a5e92c6c6a65868a1fa4' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Filter chain halted as :define_current_user rendered or redirected
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/logout?auth_token=f80d5c5ba614a5e92c6c6a65868a1fa4" for 192.168.1.5 at 2014-10-17 17:33:52 +0530
+Processing by Api::V1::SessionsController#logout as JSON
+  Parameters: {"auth_token"=>"f80d5c5ba614a5e92c6c6a65868a1fa4", "session"=>{}}
+  [1m[35mAuthenticationToken Load (0.3ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'f80d5c5ba614a5e92c6c6a65868a1fa4' LIMIT 1
+  Rendered text template (0.0ms)
+Filter chain halted as :define_current_user rendered or redirected
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/logout?auth_token=f80d5c5ba614a5e92c6c6a65868a1fa4" for 192.168.1.5 at 2014-10-17 17:34:06 +0530
+Processing by Api::V1::SessionsController#logout as JSON
+  Parameters: {"auth_token"=>"f80d5c5ba614a5e92c6c6a65868a1fa4", "session"=>{}}
+  [1m[36mAuthenticationToken Load (0.2ms)[0m  [1mSELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'f80d5c5ba614a5e92c6c6a65868a1fa4' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Filter chain halted as :define_current_user rendered or redirected
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/register" for 192.168.1.7 at 2014-10-17 17:37:40 +0530
+Processing by Api::V1::SessionsController#register as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"j1232@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"123456789456", "device_id"=>"", "device_type"=>""}}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'j1232@gmail.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (30.7ms)[0m  INSERT INTO "users" ("created_at", "device_id", "device_type", "email", "encrypted_password", "first_name", "last_name", "mobile_number", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-17 12:07:42.966276"], ["device_id", ""], ["device_type", ""], ["email", "j1232@gmail.com"], ["encrypted_password", "$2a$10$7PiS6JwoXvRj/7gGMChhhukQHfC/85b1hueRoKvG8mkByvekcJT1q"], ["first_name", ""], ["last_name", ""], ["mobile_number", 123456789456], ["updated_at", "2014-10-17 12:07:42.966276"]]
+  [1m[36m (238.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mAuthenticationToken Load (0.2ms)[0m  [1mSELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = '8c72b87fd75cc53e067251b3e5f8beb2' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "authentication_tokens" ("auth_token", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["auth_token", "8c72b87fd75cc53e067251b3e5f8beb2"], ["created_at", "2014-10-17 12:07:43.290266"], ["updated_at", "2014-10-17 12:07:43.290266"], ["user_id", 4]]
+  [1m[36m (132.5ms)[0m  [1mcommit transaction[0m
+  Rendered api/v1/sessions/register.json.jbuilder (29.3ms)
+Completed 200 OK in 870ms (Views: 73.8ms | ActiveRecord: 436.6ms)
+
+
+Started GET "/api/logout?auth_token=8c72b87fd75cc53e067251b3e5f8beb2" for 192.168.1.5 at 2014-10-17 17:38:51 +0530
+Processing by Api::V1::SessionsController#logout as JSON
+  Parameters: {"auth_token"=>"8c72b87fd75cc53e067251b3e5f8beb2", "session"=>{}}
+  [1m[35mAuthenticationToken Load (0.3ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = '8c72b87fd75cc53e067251b3e5f8beb2' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (19.4ms)[0m  [1mDELETE FROM "authentication_tokens" WHERE "authentication_tokens"."id" = ?[0m  [["id", 4]]
+  [1m[35m (152.8ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 178ms (Views: 0.9ms | ActiveRecord: 172.9ms)
+
+
+Started GET "/" for 192.168.1.7 at 2014-10-17 17:44:02 +0530
+Processing by HomeController#index as HTML
+  Rendered home/_index.html.erb (70.4ms)
+  Rendered home/_api.html.erb (75.5ms)
+  Rendered home/_api.html.erb (0.6ms)
+  Rendered home/_api.html.erb (0.4ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (15.9ms)
+  Rendered home/_api.html.erb (6.4ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.5ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (19.7ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/index.html.erb within layouts/application (1702.7ms)
+Completed 200 OK in 5213ms (Views: 4706.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/v2.css?body=1" for 192.168.1.7 at 2014-10-17 17:44:37 +0530
+
+
+Started GET "/assets/application.css?body=1" for 192.168.1.7 at 2014-10-17 17:44:37 +0530
+
+
+Started GET "/assets/prettyprint.js?body=1" for 192.168.1.7 at 2014-10-17 17:44:38 +0530
+
+
+Started GET "/assets/jquery-1.7.2.js?body=1" for 192.168.1.7 at 2014-10-17 17:44:38 +0530
+
+
+Started GET "/assets/style.css?body=1" for 192.168.1.7 at 2014-10-17 17:44:38 +0530
+
+
+Started GET "/assets/table.css?body=1" for 192.168.1.7 at 2014-10-17 17:44:38 +0530
+
+
+Started GET "/assets/application.js?body=1" for 192.168.1.7 at 2014-10-17 17:44:38 +0530
+
+
+Started GET "/assets/bg.png" for 192.168.1.7 at 2014-10-17 17:44:39 +0530
+
+ActionController::RoutingError (No route matches [GET] "/assets/bg.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (14.8ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.7ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (688.1ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (1118.1ms)
+
+
+Started POST "/api/drivers/driver_register" for 192.168.1.7 at 2014-10-17 17:45:22 +0530
+Processing by Api::V1::Drivers::SessionsController#driver_register as JSON
+  Parameters: {"driver"=>{"first_name"=>"", "last_name"=>"", "email"=>"l@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"123456789456", "device_id"=>"", "device_type"=>""}}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDriver Exists (0.3ms)[0m  SELECT  1 AS one FROM "drivers"  WHERE "drivers"."email" = 'l@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (22.5ms)[0m  [1mINSERT INTO "drivers" ("created_at", "device_id", "device_type", "email", "encrypted_password", "first_name", "last_name", "mobile_number", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-17 12:15:24.158691"], ["device_id", ""], ["device_type", ""], ["email", "l@gmail.com"], ["encrypted_password", "$2a$10$zFBmiyNZK237WHrf76Hvu.7swFnJt02Zj3lecaPyNFZWqNVbh76yq"], ["first_name", ""], ["last_name", ""], ["mobile_number", 123456789456], ["updated_at", "2014-10-17 12:15:24.158691"]]
+  [1m[35m (223.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mDriverAuthenticationToken Load (14.3ms)[0m  SELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '9b9a963f1b9e3d32a1f17e95533bae7d' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "driver_authentication_tokens" ("auth_token", "created_at", "driver_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["auth_token", "9b9a963f1b9e3d32a1f17e95533bae7d"], ["created_at", "2014-10-17 12:15:24.722557"], ["driver_id", 1], ["updated_at", "2014-10-17 12:15:24.722557"]]
+  [1m[35m (179.1ms)[0m  commit transaction
+  Rendered api/v1/drivers/sessions/driver_register.json.jbuilder (33.1ms)
+Completed 200 OK in 2184ms (Views: 91.7ms | ActiveRecord: 508.8ms)
+
+
+Started POST "/api/drivers/driver_login" for 192.168.1.7 at 2014-10-17 17:45:46 +0530
+Processing by Api::V1::Drivers::SessionsController#driver_login as JSON
+  Parameters: {"email"=>"l@gmail.com", "password"=>"[FILTERED]", "device_id"=>"", "device_type"=>""}
+  [1m[36mDriver Load (0.4ms)[0m  [1mSELECT  "drivers".* FROM "drivers"  WHERE "drivers"."email" = 'l@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDriverAuthenticationToken Load (0.2ms)[0m  [1mSELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '88ba9b6c533f8ec2d12785490f574567' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "driver_authentication_tokens" ("auth_token", "created_at", "driver_id", "updated_at") VALUES (?, ?, ?, ?)  [["auth_token", "88ba9b6c533f8ec2d12785490f574567"], ["created_at", "2014-10-17 12:15:47.046041"], ["driver_id", 1], ["updated_at", "2014-10-17 12:15:47.046041"]]
+  [1m[36m (162.7ms)[0m  [1mcommit transaction[0m
+  Rendered api/v1/drivers/sessions/driver_register.json.jbuilder (0.6ms)
+Completed 200 OK in 312ms (Views: 24.0ms | ActiveRecord: 163.6ms)
+
+
+Started POST "/api/drivers/driver_change_password" for 192.168.1.7 at 2014-10-17 17:49:36 +0530
+Processing by Api::V1::Drivers::SessionsController#driver_change_password as JSON
+  Parameters: {"auth_token"=>"88ba9b6c533f8ec2d12785490f574567", "driver"=>{"current_password"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Completed 500 Internal Server Error in 477ms
+
+NoMethodError (undefined method `update_with_password' for nil:NilClass):
+  app/controllers/api/v1/drivers/sessions_controller.rb:60:in `driver_change_password'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.9ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (1.2ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (17.6ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb (86.7ms)
+
+
+Started POST "/api/drivers/driver_forgot_password" for 192.168.1.7 at 2014-10-17 17:51:13 +0530
+Processing by Api::V1::Drivers::SessionsController#driver_forgot_password as JSON
+  Parameters: {"email"=>"l@gmail.com"}
+  [1m[35mDriver Load (0.5ms)[0m  SELECT  "drivers".* FROM "drivers"  WHERE "drivers"."email" = 'l@gmail.com' LIMIT 1
+  [1m[36mDriver Load (0.3ms)[0m  [1mSELECT  "drivers".* FROM "drivers"  WHERE "drivers"."reset_password_token" = '77f61a35320e2cf102628c40dfffce28c109fdaa9b3e8eba19a93b90f16223d8'  ORDER BY "drivers"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+Binary data inserted for `string` type on column `reset_password_token`
+  [1m[36mSQL (90.4ms)[0m  [1mUPDATE "drivers" SET "reset_password_sent_at" = ?, "reset_password_token" = ?, "updated_at" = ? WHERE "drivers"."id" = 1[0m  [["reset_password_sent_at", "2014-10-17 12:21:35.571953"], ["reset_password_token", "77f61a35320e2cf102628c40dfffce28c109fdaa9b3e8eba19a93b90f16223d8"], ["updated_at", "2014-10-17 12:21:35.627482"]]
+  [1m[35m (113.5ms)[0m  commit transaction
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/devise-3.4.0/app/views/devise/mailer/reset_password_instructions.html.erb (186.5ms)
+
+Devise::Mailer#reset_password_instructions: processed outbound mail in 2671.2ms
+
+Sent mail to l@gmail.com (667.0ms)
+Date: Fri, 17 Oct 2014 17:51:39 +0530
+From: Reset_password@example.com
+Reply-To: Reset_password@example.com
+To: l@gmail.com
+Message-ID: <544109d34a32_3a5a59d5f6c333e0@pm-Lenovo-B560.mail>
+Subject: Reset password instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Hello l@gmail.com!</p>
+
+<p>Someone has requested a link to change your password. You can do this through the link below.</p>
+
+<p><a href="http://localhost:3000/drivers/password/edit?reset_password_token=-oa-b8yqhFNEtE_Qdrex">Change my password</a></p>
+
+<p>If you didn't request this, please ignore this email.</p>
+<p>Your password won't change until you access the link above and create a new one.</p>
+
+  Rendered text template (0.0ms)
+Completed 200 OK in 9635ms (Views: 33.4ms | ActiveRecord: 939.3ms)
+
+
+Started POST "/api/drivers/driver_update_profile" for 192.168.1.7 at 2014-10-17 17:52:18 +0530
+Processing by Api::V1::Drivers::DriversController#driver_update_profile as JSON
+  Parameters: {"auth_token"=>"88ba9b6c533f8ec2d12785490f574567", "driver"=>{"first_name"=>"m", "last_name"=>"m", "mobile_number"=>"123456789456"}}
+  [1m[36mDriverAuthenticationToken Load (0.2ms)[0m  [1mSELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '88ba9b6c533f8ec2d12785490f574567' LIMIT 1[0m
+  [1m[35mDriver Load (0.6ms)[0m  SELECT  "drivers".* FROM "drivers"  WHERE "drivers"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered api/v1/drivers/drivers/driver_update_profile.json.jbuilder (14.1ms)
+Completed 200 OK in 566ms (Views: 98.9ms | ActiveRecord: 52.3ms)
+
+
+Started POST "/api/drivers/driver_list" for 192.168.1.7 at 2014-10-17 17:52:43 +0530
+Processing by Api::V1::Drivers::DriversController#driver_list as JSON
+  Parameters: {"auth_token"=>"88ba9b6c533f8ec2d12785490f574567"}
+  [1m[36mDriverAuthenticationToken Load (0.3ms)[0m  [1mSELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '88ba9b6c533f8ec2d12785490f574567' LIMIT 1[0m
+  [1m[35mDriver Load (0.1ms)[0m  SELECT  "drivers".* FROM "drivers"  WHERE "drivers"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mDriver Load (0.2ms)[0m  [1mSELECT "drivers".* FROM "drivers"[0m
+  Rendered api/v1/drivers/drivers/index.json.jbuilder (21.0ms)
+Completed 200 OK in 136ms (Views: 111.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/drivers/driver_logout?auth_token=88ba9b6c533f8ec2d12785490f574567" for 192.168.1.7 at 2014-10-17 17:52:52 +0530
+Processing by Api::V1::Drivers::SessionsController#driver_logout as JSON
+  Parameters: {"auth_token"=>"88ba9b6c533f8ec2d12785490f574567"}
+  Rendered text template (13.3ms)
+Completed 200 OK in 16ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/drivers/driver_logout?auth_token=88ba9b6c533f8ec2d12785490f574567" for 192.168.1.7 at 2014-10-17 17:53:27 +0530
+Processing by Api::V1::Drivers::SessionsController#driver_logout as JSON
+  Parameters: {"auth_token"=>"88ba9b6c533f8ec2d12785490f574567"}
+  [1m[35mDriverAuthenticationToken Load (0.3ms)[0m  SELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '88ba9b6c533f8ec2d12785490f574567' LIMIT 1
+  [1m[36mDriver Load (0.4ms)[0m  [1mSELECT  "drivers".* FROM "drivers"  WHERE "drivers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (30.3ms)[0m  [1mDELETE FROM "driver_authentication_tokens" WHERE "driver_authentication_tokens"."id" = ?[0m  [["id", 2]]
+  [1m[35m (453.5ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 1020ms (Views: 0.9ms | ActiveRecord: 545.7ms)
+
+
+Started POST "/api/drivers/driver_change_password" for 192.168.1.7 at 2014-10-17 17:53:47 +0530
+Processing by Api::V1::Drivers::SessionsController#driver_change_password as JSON
+  Parameters: {"auth_token"=>"88ba9b6c533f8ec2d12785490f574567", "driver"=>{"current_password"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[36mDriverAuthenticationToken Load (0.3ms)[0m  [1mSELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '88ba9b6c533f8ec2d12785490f574567' LIMIT 1[0m
+  Rendered text template (0.0ms)
+Filter chain halted as :define_current_driver rendered or redirected
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/drivers/driver_login" for 192.168.1.7 at 2014-10-17 17:53:57 +0530
+Processing by Api::V1::Drivers::SessionsController#driver_login as JSON
+  Parameters: {"email"=>"l@gmail.com", "password"=>"[FILTERED]", "device_id"=>"", "device_type"=>""}
+  [1m[35mDriver Load (0.4ms)[0m  SELECT  "drivers".* FROM "drivers"  WHERE "drivers"."email" = 'l@gmail.com' LIMIT 1
+  Rendered text template (0.0ms)
+Completed 200 OK in 159ms (Views: 0.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/drivers/driver_login" for 192.168.1.7 at 2014-10-17 17:54:03 +0530
+Processing by Api::V1::Drivers::SessionsController#driver_login as JSON
+  Parameters: {"email"=>"l@gmail.com", "password"=>"[FILTERED]", "device_id"=>"", "device_type"=>""}
+  [1m[36mDriver Load (0.5ms)[0m  [1mSELECT  "drivers".* FROM "drivers"  WHERE "drivers"."email" = 'l@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mDriverAuthenticationToken Load (0.2ms)[0m  [1mSELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '40ab5cc92b9d905795f21533d056403c' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "driver_authentication_tokens" ("auth_token", "created_at", "driver_id", "updated_at") VALUES (?, ?, ?, ?)  [["auth_token", "40ab5cc92b9d905795f21533d056403c"], ["created_at", "2014-10-17 12:24:03.894761"], ["driver_id", 1], ["updated_at", "2014-10-17 12:24:03.894761"]]
+  [1m[36m (314.3ms)[0m  [1mcommit transaction[0m
+  Rendered api/v1/drivers/sessions/driver_register.json.jbuilder (0.5ms)
+Completed 200 OK in 671ms (Views: 101.2ms | ActiveRecord: 315.5ms)
+
+
+Started POST "/api/drivers/driver_change_password" for 192.168.1.7 at 2014-10-17 17:54:15 +0530
+Processing by Api::V1::Drivers::SessionsController#driver_change_password as JSON
+  Parameters: {"auth_token"=>"40ab5cc92b9d905795f21533d056403c", "driver"=>{"current_password"=>"[FILTERED]", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+  [1m[35mDriverAuthenticationToken Load (0.3ms)[0m  SELECT  "driver_authentication_tokens".* FROM "driver_authentication_tokens"  WHERE "driver_authentication_tokens"."auth_token" = '40ab5cc92b9d905795f21533d056403c' LIMIT 1
+  [1m[36mDriver Load (0.1ms)[0m  [1mSELECT  "drivers".* FROM "drivers"  WHERE "drivers"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  begin transaction
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "drivers" SET "encrypted_password" = ?, "updated_at" = ? WHERE "drivers"."id" = 1[0m  [["encrypted_password", "$2a$10$6diHRo.PUwrm.XHDlEXeJ.FmnKeV488hcbL2DC4mukMuY7HHF2EQm"], ["updated_at", "2014-10-17 12:24:16.248461"]]
+  [1m[35m (3517.2ms)[0m  commit transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 4620ms (Views: 0.9ms | ActiveRecord: 3518.0ms)
