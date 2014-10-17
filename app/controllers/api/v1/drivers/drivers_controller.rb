@@ -14,9 +14,9 @@ class Api::V1::Drivers::DriversController < Api::V1::Drivers::BaseController
 
   def update_profile
     if @driver.update_attributes(update_params)
-      render_json({:message => "your profile is updated" , :status => 200}).to_json   
+      render_json({:message => "your profile is updated" , :status => 200}.to_json)   
     else
-      render_json({:errors => @driver.display_errors, :status => 404}).to_json
+      render_json({:errors => @driver.display_errors, :status => 404}.to_json)
     end
   end
 
