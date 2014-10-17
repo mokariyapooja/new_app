@@ -1,6 +1,6 @@
 class Api::V1::SessionsController < Api::V1::BaseController
   ##Filter
-  before_action :define_current_user, only: [:sing_out, :change_password]
+  before_action :define_current_user, only: [:logout, :change_password]
  
   ##sing_up 
   def register 
