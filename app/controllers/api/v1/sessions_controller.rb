@@ -33,7 +33,9 @@ class Api::V1::SessionsController < Api::V1::BaseController
   def logout
     if @token.present?
       @token.destroy  
-      render_json({:message => "Logout Successfully.!"}.to_json)
+      render_json({post:{:message => "Logout Successfully.!"}}.to_json)
+      #render_json([{"message":"Logout Successfully.!"}].to_json)
+    
     else
       render_json({:errors => "No user found with authentication_token = #{params[:auth_token]}"}.to_json)
     end
