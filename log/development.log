@@ -21285,3 +21285,201 @@ Processing by Api::V1::SessionsController#sing_out as JSON
   [1m[35m (147.9ms)[0m  commit transaction
   Rendered text template (0.0ms)
 Completed 200 OK in 571ms (Views: 40.7ms | ActiveRecord: 399.1ms)
+
+
+Started GET "/" for 192.168.1.7 at 2014-10-17 12:20:36 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  Rendered home/_index.html.erb (3.5ms)
+  Rendered home/_api.html.erb (1.9ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.5ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.5ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.4ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/_api.html.erb (0.4ms)
+  Rendered home/_api.html.erb (0.2ms)
+  Rendered home/_api.html.erb (0.3ms)
+  Rendered home/index.html.erb within layouts/application (72.7ms)
+Completed 200 OK in 408ms (Views: 362.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/table.css?body=1" for 192.168.1.7 at 2014-10-17 12:20:37 +0530
+
+
+Started GET "/assets/application.css?body=1" for 192.168.1.7 at 2014-10-17 12:20:37 +0530
+
+
+Started GET "/assets/jquery-1.7.2.js?body=1" for 192.168.1.7 at 2014-10-17 12:20:37 +0530
+
+
+Started GET "/assets/prettyprint.js?body=1" for 192.168.1.7 at 2014-10-17 12:20:37 +0530
+
+
+Started GET "/assets/v2.css?body=1" for 192.168.1.7 at 2014-10-17 12:20:37 +0530
+
+
+Started GET "/assets/style.css?body=1" for 192.168.1.7 at 2014-10-17 12:20:37 +0530
+
+
+Started GET "/assets/application.js?body=1" for 192.168.1.7 at 2014-10-17 12:20:37 +0530
+
+
+Started GET "/assets/bg.png" for 192.168.1.7 at 2014-10-17 12:20:37 +0530
+
+ActionController::RoutingError (No route matches [GET] "/assets/bg.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (6.1ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (90.4ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (157.8ms)
+
+
+Started GET "/assets/bg_box.png" for 192.168.1.7 at 2014-10-17 12:20:38 +0530
+
+ActionController::RoutingError (No route matches [GET] "/assets/bg_box.png"):
+  actionpack (4.1.5) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.5) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.5) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.5) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.5) lib/rails/engine.rb:514:in `call'
+  railties (4.1.5) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:138:in `service'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/httpserver.rb:94:in `run'
+  /home/pm/.rvm/rubies/ruby-2.1.2/lib/ruby/2.1.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_route.html.erb (9.2ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.8ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (50.8ms)
+
+
+Started POST "/api/register" for 192.168.1.7 at 2014-10-17 12:20:52 +0530
+Processing by Api::V1::SessionsController#sing_up as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"m1@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"", "device_id"=>"", "device_type"=>""}}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'm1@gmail.com' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  Rendered text template (0.0ms)
+Completed 200 OK in 288ms (Views: 2.7ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/register" for 192.168.1.7 at 2014-10-17 12:21:01 +0530
+Processing by Api::V1::SessionsController#sing_up as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"m1@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"123123123123", "device_id"=>"", "device_type"=>""}}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'm1@gmail.com' LIMIT 1
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[36mSQL (25.8ms)[0m  [1mINSERT INTO "users" ("created_at", "device_id", "device_type", "email", "encrypted_password", "first_name", "last_name", "mobile_number", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", "2014-10-17 06:51:01.917554"], ["device_id", ""], ["device_type", ""], ["email", "m1@gmail.com"], ["encrypted_password", "$2a$10$q0T8lE3dylyLEAcieK/aVOUjmUj15ULmsca5PpOVkPIDyR.yOLLQC"], ["first_name", ""], ["last_name", ""], ["mobile_number", 123123123123], ["updated_at", "2014-10-17 06:51:01.917554"]]
+  [1m[35m (158.0ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mAuthenticationToken Load (0.2ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = '69db1806c6a47aeff76d112831002270' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "authentication_tokens" ("auth_token", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)[0m  [["auth_token", "69db1806c6a47aeff76d112831002270"], ["created_at", "2014-10-17 06:51:02.176435"], ["updated_at", "2014-10-17 06:51:02.176435"], ["user_id", 3]]
+  [1m[35m (155.4ms)[0m  commit transaction
+  Rendered api/v1/sessions/sing_up.json.jbuilder (37.1ms)
+Completed 200 OK in 609ms (Views: 60.6ms | ActiveRecord: 341.1ms)
+
+
+Started POST "/api/register" for 192.168.1.7 at 2014-10-17 12:21:05 +0530
+Processing by Api::V1::SessionsController#sing_up as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"m1@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"123123123123", "device_id"=>"", "device_type"=>""}}
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" = 'm1@gmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  Rendered text template (0.0ms)
+Completed 200 OK in 121ms (Views: 1.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/register" for 192.168.1.7 at 2014-10-17 12:25:53 +0530
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Api::V1::SessionsController#sing_up as JSON
+  Parameters: {"user"=>{"first_name"=>"", "last_name"=>"", "email"=>"m12@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "mobile_number"=>"123123123123", "device_id"=>"", "device_type"=>""}}
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."email" = 'm12@gmail.com' LIMIT 1[0m
+Binary data inserted for `string` type on column `encrypted_password`
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "users" ("created_at", "device_id", "device_type", "email", "encrypted_password", "first_name", "last_name", "mobile_number", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)  [["created_at", "2014-10-17 06:55:53.921056"], ["device_id", ""], ["device_type", ""], ["email", "m12@gmail.com"], ["encrypted_password", "$2a$10$ZwJnKsxqgG8QMTLx7p8MgOEsmsLvCCYG.ZGqAU0C6k2rvEwIE/JXO"], ["first_name", ""], ["last_name", ""], ["mobile_number", 123123123123], ["updated_at", "2014-10-17 06:55:53.921056"]]
+  [1m[36m (151.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mAuthenticationToken Load (0.3ms)[0m  [1mSELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'd8815c97df56948ba1b0df142f3802c7' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "authentication_tokens" ("auth_token", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?)  [["auth_token", "d8815c97df56948ba1b0df142f3802c7"], ["created_at", "2014-10-17 06:55:54.151511"], ["updated_at", "2014-10-17 06:55:54.151511"], ["user_id", 4]]
+  [1m[36m (165.1ms)[0m  [1mcommit transaction[0m
+  Rendered api/v1/sessions/sing_up.json.jbuilder (32.7ms)
+Completed 200 OK in 768ms (Views: 102.6ms | ActiveRecord: 320.2ms)
+
+
+Started POST "/api/update_profile" for 192.168.1.7 at 2014-10-17 12:26:12 +0530
+Processing by Api::V1::UsersController#update_profile as JSON
+  Parameters: {"auth_token"=>"d8815c97df56948ba1b0df142f3802c7", "user"=>{"first_name"=>"j", "last_name"=>"j", "mobile_number"=>"123123123123"}}
+  [1m[35mAuthenticationToken Load (0.3ms)[0m  SELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'd8815c97df56948ba1b0df142f3802c7' LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1[0m  [["id", 4]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "first_name" = ?, "last_name" = ?, "updated_at" = ? WHERE "users"."id" = 4[0m  [["first_name", "j"], ["last_name", "j"], ["updated_at", "2014-10-17 06:56:12.393153"]]
+  [1m[35m (156.3ms)[0m  commit transaction
+  Rendered api/v1/users/update_profile.json.jbuilder (0.7ms)
+Completed 500 Internal Server Error in 183ms
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/api/v1/base_controller.rb:17:in `render_json'
+  app/controllers/api/v1/users_controller.rb:8:in `update_profile'
+
+
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.3ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_trace.text.erb (0.9ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/_request_and_response.text.erb (1.4ms)
+  Rendered /home/pm/.rvm/gems/ruby-2.1.2@new_app/gems/actionpack-4.1.5/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb (31.6ms)
+
+
+Started POST "/api/update_profile" for 192.168.1.7 at 2014-10-17 12:26:27 +0530
+Processing by Api::V1::UsersController#update_profile as JSON
+  Parameters: {"auth_token"=>"d8815c97df56948ba1b0df142f3802c7", "user"=>{"first_name"=>"j", "last_name"=>"j", "mobile_number"=>"123123123123"}}
+  [1m[36mAuthenticationToken Load (0.2ms)[0m  [1mSELECT  "authentication_tokens".* FROM "authentication_tokens"  WHERE "authentication_tokens"."auth_token" = 'd8815c97df56948ba1b0df142f3802c7' LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = ? LIMIT 1  [["id", 4]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  commit transaction
+  Rendered api/v1/users/update_profile.json.jbuilder (0.4ms)
+Completed 200 OK in 49ms (Views: 14.9ms | ActiveRecord: 2.2ms)

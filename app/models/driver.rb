@@ -7,9 +7,6 @@ class Driver < ActiveRecord::Base
   ##relationship
   has_many :driver_authentication_tokens, :dependent => :destroy
   
-  ##validations
-  validates_uniqueness_of :email
-
   ##class
   class << self
     def authenticate_driver_with_auth_token(email,password)

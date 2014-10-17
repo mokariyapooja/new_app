@@ -7,8 +7,7 @@ class User < ActiveRecord::Base
   ##relationship
   has_many :authentication_tokens, :dependent => :destroy
   
-  ##validations
-  validates_uniqueness_of :email
+  ##validations 
   validates_format_of :mobile_number, 
                       :with => /\A[0-9]{10,15}\Z/,:maximum =>15,:minimum =>10
 
