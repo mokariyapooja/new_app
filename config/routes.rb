@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :drivers
-  #devise_for :drivers,:controllers => { :registrations => "driver/registrations", :passwords => "driver/passwords",:confirmations => "driver/confirmations",:sessions=> "driver/sessions"}, :skip => [:registrations]
   devise_for :users 
   root  to: 'home#index'
   namespace :api , :defaults => { :format => 'json' } do

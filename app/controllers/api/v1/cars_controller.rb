@@ -1,5 +1,4 @@
 class Api::V1::CarsController < Api::V1::BaseController
- 
   ##Filter
   before_action :define_current_user
 
