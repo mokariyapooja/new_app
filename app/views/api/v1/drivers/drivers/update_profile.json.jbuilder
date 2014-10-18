@@ -1,1 +1,0 @@
-json.(@driver ,:first_name, :last_name, :mobile_number )
