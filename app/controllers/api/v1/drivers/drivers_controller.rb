@@ -12,9 +12,9 @@ class Api::V1::Drivers::DriversController < Api::V1::Drivers::BaseController
     end   
   end
 
-  def update_profile
+  def driver_update_profile
     if @driver.update_attributes(update_params)
-      render :file => 'api/v1/drivers/drivers/update_profile'  
+      render :file => 'api/v1/drivers/drivers/driver_update_profile'  
     else
       render_json({:errors => @driver.display_errors, :status => 404}.to_json)
     end
